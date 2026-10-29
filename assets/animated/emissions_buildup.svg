@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" width="1200" height="560" font-family="system-ui, -apple-system, 'Segoe UI', Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">Animated: corporate footprint by scope and Scope 3 category</title>
+  <desc id="d">Total 511,098 t CO2e: Scope 1 202,029 t, Scope 2 market-based 107,900 t, Scope 3 201,170 t. Scope 3 categories: Cat 1 – Purchased goods &amp; services 52,951 t; Cat 3 – Fuel- &amp; energy-related 40,932 t; Cat 4 – Upstream transport 26,626 t; Cat 10 – Processing of sold products 24,443 t; Cat 5 – Waste in operations 20,025 t; Cat 12 – End-of-life treatment 14,775 t; Cat 2 – Capital goods 12,250 t; Cat 9 – Downstream transport 4,940 t; Cat 7 – Employee commuting 3,599 t; Cat 6 – Business travel 630 t.</desc>
+  <style>
+    .s{font-size:12.5px;fill:#52514e} .v{font-size:12px;fill:#52514e} .w{font-size:13px;font-weight:700;fill:#ffffff}
+    @keyframes grow{0%{transform:scaleX(0)}12%,100%{transform:scaleX(1)}}
+    @keyframes fade{0%,8%{opacity:0}16%,100%{opacity:1}}
+    .g{transform-box:fill-box;transform-origin:left center;animation:grow 10s cubic-bezier(.2,.7,.2,1) infinite both}
+    .f{animation:fade 10s infinite both}
+    @media (prefers-reduced-motion: reduce){.g,.f{animation:none}}
+  </style>
+  <rect width="1200" height="560" rx="16" fill="#fcfcfb"/>
+  <text x="30" y="40" font-size="22" font-weight="800" fill="#0b0b0b">Where do 511k t CO₂e come from?</text>
+  <text x="30" y="62" class="s">Reporting year 2025 · GHG Protocol · Scope 2 market-based · fictional data</text>
+  <rect class="g" style="animation-delay:0.0s" x="30.0" y="80" width="450.6" height="44" rx="4" fill="#2a78d6"/>
+  <text class="w f" style="animation-delay:0.3s" x="255.3" y="100" text-anchor="middle">Scope 1 · direct</text>
+  <text class="w f" style="animation-delay:0.3s" x="255.3" y="117" text-anchor="middle" font-weight="400">202k t · 40%</text>
+  <rect class="g" style="animation-delay:0.6s" x="482.6" y="80" width="238.7" height="44" rx="4" fill="#eb6834"/>
+  <text class="w f" style="animation-delay:0.8999999999999999s" x="601.0" y="100" text-anchor="middle">Scope 2 · electricity (market-based)</text>
+  <text class="w f" style="animation-delay:0.8999999999999999s" x="601.0" y="117" text-anchor="middle" font-weight="400">108k t · 21%</text>
+  <rect class="g" style="animation-delay:1.2s" x="723.3" y="80" width="446.7" height="44" rx="4" fill="#1baf7a"/>
+  <text class="w f" style="animation-delay:1.5s" x="945.6" y="100" text-anchor="middle">Scope 3 · value chain</text>
+  <text class="w f" style="animation-delay:1.5s" x="945.6" y="117" text-anchor="middle" font-weight="400">201k t · 39%</text>
+  <text x="30" y="156" font-size="16" font-weight="800" fill="#0b0b0b">Scope 3 broken down into its categories</text>
+  <text x="280" y="187" class="v" text-anchor="end">Cat 1 – Purchased goods &amp; services</text>
+  <rect class="g" style="animation-delay:1.80s" x="290" y="174" width="760.0" height="20" rx="4" fill="#1baf7a"/>
+  <text class="v f" style="animation-delay:2.00s" x="1058.0" y="188">52,951 t · 26%</text>
+  <text x="280" y="221" class="v" text-anchor="end">Cat 3 – Fuel- &amp; energy-related</text>
+  <rect class="g" style="animation-delay:2.05s" x="290" y="208" width="587.5" height="20" rx="4" fill="#1baf7a"/>
+  <text class="v f" style="animation-delay:2.25s" x="885.5" y="222">40,932 t · 20%</text>
+  <text x="280" y="255" class="v" text-anchor="end">Cat 4 – Upstream transport</text>
+  <rect class="g" style="animation-delay:2.30s" x="290" y="242" width="382.2" height="20" rx="4" fill="#1baf7a"/>
+  <text class="v f" style="animation-delay:2.50s" x="680.2" y="256">26,626 t · 13%</text>
+  <text x="280" y="289" class="v" text-anchor="end">Cat 10 – Processing of sold products</text>
+  <rect class="g" style="animation-delay:2.55s" x="290" y="276" width="350.8" height="20" rx="4" fill="#1baf7a"/>
+  <text class="v f" style="animation-delay:2.75s" x="648.8" y="290">24,443 t · 12%</text>
+  <text x="280" y="323" class="v" text-anchor="end">Cat 5 – Waste in operations</text>
+  <rect class="g" style="animation-delay:2.80s" x="290" y="310" width="287.4" height="20" rx="4" fill="#1baf7a"/>
+  <text class="v f" style="animation-delay:3.00s" x="585.4" y="324">20,025 t · 10%</text>
+  <text x="280" y="357" class="v" text-anchor="end">Cat 12 – End-of-life treatment</text>
+  <rect class="g" style="animation-delay:3.05s" x="290" y="344" width="212.1" height="20" rx="4" fill="#1baf7a"/>
+  <text class="v f" style="animation-delay:3.25s" x="510.1" y="358">14,775 t · 7%</text>
+  <text x="280" y="391" class="v" text-anchor="end">Cat 2 – Capital goods</text>
+  <rect class="g" style="animation-delay:3.30s" x="290" y="378" width="175.8" height="20" rx="4" fill="#1baf7a"/>
+  <text class="v f" style="animation-delay:3.50s" x="473.8" y="392">12,250 t · 6%</text>
+  <text x="280" y="425" class="v" text-anchor="end">Cat 9 – Downstream transport</text>
+  <rect class="g" style="animation-delay:3.55s" x="290" y="412" width="70.9" height="20" rx="4" fill="#1baf7a"/>
+  <text class="v f" style="animation-delay:3.75s" x="368.9" y="426">4,940 t · 2%</text>
+  <text x="280" y="459" class="v" text-anchor="end">Cat 7 – Employee commuting</text>
+  <rect class="g" style="animation-delay:3.80s" x="290" y="446" width="51.6" height="20" rx="4" fill="#1baf7a"/>
+  <text class="v f" style="animation-delay:4.00s" x="349.6" y="460">3,599 t · 2%</text>
+  <text x="280" y="493" class="v" text-anchor="end">Cat 6 – Business travel</text>
+  <rect class="g" style="animation-delay:4.05s" x="290" y="480" width="9.0" height="20" rx="4" fill="#1baf7a"/>
+  <text class="v f" style="animation-delay:4.25s" x="307.0" y="494">630 t · 0%</text>
+  <rect x="30" y="522" width="1140" height="44" rx="10" fill="#e8f7f1"/>
+  <text x="48" y="549" class="s"><tspan font-weight="700" fill="#0f7a54">Read it:</tspan> the top 4 categories make up 72% of Scope 3, so supplier data for purchased goods (Cat 1) and energy upstream (Cat 3) matter most.</text>
+</svg>

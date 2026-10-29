@@ -1,0 +1,38 @@
+product,stage,input,kg_co2e,scope
+board,A1 Raw materials,Recovered paper (collection & sorting),17.25,Scope 3 Cat 1
+board,A1 Raw materials,Native starch (surface & wet-end),34.0,Scope 3 Cat 1
+board,A1 Raw materials,Calcium carbonate filler,2.4,Scope 3 Cat 1
+board,A1 Raw materials,Process chemicals,20.0,Scope 3 Cat 1
+board,A2 Transport,Inbound transport recovered paper,16.3875,Scope 3 Cat 4
+board,A3 Manufacturing,Natural gas – steam & drying (CHP/boiler),341.7,Scope 1
+board,A3 Manufacturing,Natural gas – upstream,51.0,Scope 3 Cat 3
+board,A3 Manufacturing,Grid electricity (location-based),163.35,Scope 2
+board,A3 Manufacturing,Electricity – upstream & losses,20.25,Scope 3 Cat 3
+board,A3 Manufacturing,Water & wastewater treatment,2.4,Scope 3 Cat 5
+board,A3 Manufacturing,Pulper rejects to incineration,48.0,Scope 3 Cat 5
+carton,A1 Raw materials,Recycled cartonboard (own mill),814.4744,Scope 1/2/3 (internal)
+carton,A1 Raw materials,Offset printing inks,48.0,Scope 3 Cat 1
+carton,A1 Raw materials,Overprint varnish,20.0,Scope 3 Cat 1
+carton,A1 Raw materials,Dispersion adhesive (gluing),9.0,Scope 3 Cat 1
+carton,A1 Raw materials,Packaging – LDPE stretch film,15.6,Scope 3 Cat 1
+carton,A2 Transport,Board transport mill → plant,26.9886,Scope 3 Cat 4
+carton,A3 Manufacturing,Natural gas – heating & ink drying,16.08,Scope 1
+carton,A3 Manufacturing,Natural gas – upstream,2.4,Scope 3 Cat 3
+carton,A3 Manufacturing,"Electricity – printing, die-cutting, gluing",90.75,Scope 2
+carton,A3 Manufacturing,Electricity – upstream & losses,11.25,Scope 3 Cat 3
+carton,A3 Manufacturing,Trim waste → own mill as RCP (closed loop),2.0455,Scope 3 Cat 1
+gypsum,A1 Raw materials,Natural gypsum,18.0,Scope 3 Cat 1
+gypsum,A1 Raw materials,FGD gypsum,5.4,Scope 3 Cat 1
+gypsum,A1 Raw materials,Recycled gypsum,14.4,Scope 3 Cat 1
+gypsum,A1 Raw materials,Liner board (own recycled mill),286.695,Scope 1/2/3 (internal)
+gypsum,A1 Raw materials,Starch (core bonding),25.5,Scope 3 Cat 1
+gypsum,A1 Raw materials,Glass fibre,16.0,Scope 3 Cat 1
+gypsum,A1 Raw materials,Additives & foaming agent,11.5,Scope 3 Cat 1
+gypsum,A1 Raw materials,Packaging – LDPE film,13.0,Scope 3 Cat 1
+gypsum,A2 Transport,Gypsum inbound transport,68.4,Scope 3 Cat 4
+gypsum,A2 Transport,Liner board transport mill → plant,11.4,Scope 3 Cat 4
+gypsum,A3 Manufacturing,Natural gas – calcination,442.2,Scope 1
+gypsum,A3 Manufacturing,Natural gas – board drying,904.5,Scope 1
+gypsum,A3 Manufacturing,Natural gas – upstream,201.0,Scope 3 Cat 3
+gypsum,A3 Manufacturing,Electricity,217.8,Scope 2
+gypsum,A3 Manufacturing,Electricity – upstream & losses,27.0,Scope 3 Cat 3

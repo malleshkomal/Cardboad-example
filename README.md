@@ -10,7 +10,7 @@ Recovered paper → recycled cartonboard → folding cartons & gypsum board
 ![Excel](https://img.shields.io/badge/Model-Excel%20%2B%20Python-217346)
 ![Data](https://img.shields.io/badge/data-fictional-lightgrey)
 
-> **Interactive dashboard:** open [`docs/index.html`](docs/index.html) in a browser, or enable GitHub Pages (Settings → Pages → Branch `main`, folder `/docs`). It will then be live at [malleshkomal.github.io/circular-carbon-toolkit](https://malleshkomal.github.io/circular-carbon-toolkit/).
+> **Interactive dashboard:** open [`docs/index.html`](docs/index.html) in a browser, or enable GitHub Pages (Settings → Pages → Branch `main`, folder `/docs`). It will then be live at [malleshkomal.github.io/Cardboad-example](https://malleshkomal.github.io/Cardboad-example/).
 
 ![Dashboard preview](assets/dashboard_preview.png)
 
@@ -48,19 +48,116 @@ The company is fictional. It runs a **circular business model**: it buys recover
 
 ## 2. Scope 1, 2 and 3 explained
 
-The **GHG Protocol** groups a company's emissions by *who controls the source*:
+The **GHG Protocol** sorts every tonne of CO₂ by one question: **whose chimney or exhaust does it come out of?**
 
-| Scope | What it covers | In this business | Result |
+- 🔵 **Scope 1**: our own chimneys and exhausts.
+- 🟠 **Scope 2**: the power plant's chimney, for the electricity *we* buy.
+- 🟢 **Scope 3**: everybody else's chimneys in our value chain: suppliers, hauliers and customers.
+
+![Animated explainer of Scope 1, 2 and 3](assets/animated/scopes_explained.svg)
+
+<sub>▶ The animation cycles Scope 1 → Scope 2 → Scope 3 every 15 s. The highlighted zone and the caption change together.</sub>
+
+### 2.1 The footprint at a glance
+
+![Animated breakdown of the footprint by scope and Scope 3 category](assets/animated/emissions_buildup.svg)
+
+| Scope | Simple definition | What it is in this business | Result |
 |---|---|---|---|
-| 🔵 **Scope 1** – direct | Fuel burned in sources the company owns or controls | Natural gas in board-mill boilers/CHP, gypsum calcination & drying, forklift diesel | **202,029 t CO₂e** (40 %) |
-| 🟠 **Scope 2** – purchased energy | Electricity, steam or heat bought from others | Grid power for pulpers, board machines, printing presses | **107,900 t** market-based (21 %) · 84,232 t location-based |
-| 🟢 **Scope 3** – value chain | Everything else, upstream and downstream (15 categories) | Starch, chemicals, gypsum, transport, fuel upstream, processing of sold board, end-of-life | **201,170 t** (39 %) |
+| 🔵 **Scope 1**: direct | Fuel burned in equipment **we own or control** | Natural gas in board-mill boilers/CHP, gypsum calcination & drying, forklift diesel | **202,029 t CO₂e** (40 %) |
+| 🟠 **Scope 2**: purchased energy | Emissions at the power plant for **electricity/steam we buy** | Grid power for pulpers, board machines, printing presses | **107,900 t** market-based (21 %) · 84,232 t location-based |
+| 🟢 **Scope 3**: value chain | **Everyone else's** emissions caused by our business (15 categories) | Starch, chemicals, gypsum, transport, fuel upstream, processing of sold board, end-of-life | **201,170 t** (39 %) |
 
-### Value chain and scope boundaries
+> **How every number is calculated:** `activity data × emission factor = emissions`.
+> Example: board mills burn **675.4 GWh** of natural gas × **0.201 kg CO₂e/kWh** = **135,764 t CO₂e**.
 
-![Value chain with Scope 1, 2 and 3 boundaries](assets/value_chain_scopes.svg)
+---
 
-### Scope flow
+### 2.2 🔵 Scope 1: direct emissions (we own the chimney)
+
+**What:** fuel burned on our sites, in our boilers, dryers, kilns and vehicles.
+**Why it's the biggest scope here:** paper and gypsum board both need a lot of **heat to dry water out**, and that heat comes from natural gas.
+
+| Source | Activity | × Factor | = t CO₂e | Share of S1 |
+|---|---:|---:|---:|---:|
+| Board mills: steam & drying (boilers/CHP) | 675.4 GWh gas | 0.201 kg/kWh | **135,764** | 67 % |
+| Gypsum board plants: calcination + drying | 301.5 GWh gas | 0.201 kg/kWh | **60,602** | 30 % |
+| Mobile equipment: forklifts, yard trucks | 1.5 million l diesel | 2.65 kg/l | **3,975** | 2 % |
+| Folding carton plants: heating & ink drying | 8.4 GWh gas | 0.201 kg/kWh | **1,688** | 1 % |
+| **Total Scope 1** | | | **202,029** | 100 % |
+
+💡 **Levers:** heat pumps / mechanical vapour recompression (L02), electrode boiler on green power (L03), dryer heat recovery (L04), biomethane (L05). See [section 6](#6-decarbonisation-levers).
+
+---
+
+### 2.3 🟠 Scope 2: purchased electricity (someone else's chimney, our demand)
+
+**What:** the CO₂ emitted at power plants to produce the **232 GWh** of electricity our mills and plants use.
+**Special rule:** Scope 2 must be reported **two ways**, and the animation shows why they differ.
+
+![Animated Scope 2 location-based vs market-based](assets/animated/scope2_methods.svg)
+
+| Method | What it answers | Calculation | Result |
+|---|---|---|---:|
+| **Location-based** | "How dirty is the grid we're plugged into?" | 232 GWh × 0.363 kg/kWh (German grid mix) | 84,232 t |
+| **Market-based** ✔ | "What electricity did we *contract* to buy?" | 25 % × 0 (Guarantees of Origin) + 75 % × 0.62 kg/kWh (residual mix) | **107,900 t** |
+
+💡 **Why market-based is higher:** certified green power has already been claimed by its buyers, so the leftover "residual mix" is dirtier than the grid average. Buying more renewable power (L01: +50 % PPA) is the **single biggest lever in the whole model** at about 72,000 t/yr.
+
+---
+
+### 2.4 🟢 Scope 3: the value chain (everyone else's chimney)
+
+**What:** emissions that happen *outside* our sites but are **caused by our business**. Upstream that means making our raw materials, trucking them in and producing our fuel. Downstream it means customers processing our board and disposing of products at end-of-life.
+
+![Animated value chain with Scope 1, 2 and 3 boundaries](assets/animated/value_chain_flow.svg)
+
+<sub>▶ Dashed arrows show material flowing through the chain. The blue band (our own operations) is Scope 1 + 2; the green bands are Scope 3. The green loop at the bottom is the circular economy: used paper and gypsum come back as raw material.</sub>
+
+#### The 15 Scope 3 categories in this business
+
+| # | Category | Status | What it means here | Method | t CO₂e |
+|---|---|:---:|---|---|---:|
+| 1 | Purchased goods & services | ✅ | Starch, chemicals, inks, gypsum, recovered paper, indirect spend | Hybrid: supplier PCFs + secondary + spend-based | 52,951 |
+| 2 | Capital goods | ✅ | New machines and buildings | Spend-based | 12,250 |
+| 3 | Fuel- & energy-related | ✅ | Producing and transporting our gas and power (well-to-tank, grid losses) | Average-data | 40,932 |
+| 4 | Upstream transport | ✅ | Trucks bringing recovered paper and gypsum; our paid deliveries | Distance-based (t·km) | 26,626 |
+| 5 | Waste in operations | ✅ | Pulper rejects (plastics) incinerated; wastewater | Average-data | 20,025 |
+| 6 | Business travel | ✅ | Flights, trains, rental cars | Distance-based | 630 |
+| 7 | Employee commuting | ✅ | 2,800 employees driving to work | Average-data | 3,599 |
+| 8 | Upstream leased assets | ➖ | Already inside Scope 1/2 | Not relevant | – |
+| 9 | Downstream transport | ✅ | Customers collecting board themselves | Distance-based | 4,940 |
+| 10 | Processing of sold products | ✅ | External converters printing and cutting our board | Proxy: own converting energy | 24,443 |
+| 11 | Use of sold products | ➖ | Cartons and plasterboard use no energy in use | Not relevant | – |
+| 12 | End-of-life treatment | ✅ | Recycling, incineration, landfill of our products | Average-data, biogenic CO₂ excluded | 14,775 |
+| 13-15 | Leased assets · franchises · investments | ➖ | None material | Not relevant | – |
+
+![Scope 3 by category](assets/charts/02_scope3_categories.png)
+
+#### How supplier data gets into Category 1
+
+Category 1 is where **sustainable procurement** has the most influence. A supplier's own product carbon footprint replaces a generic database value, but only if its data quality is good enough:
+
+![Animated supplier data flow](assets/animated/supplier_data_flow.svg)
+
+**Example:** Starch Mill Central reports **0.62 kg CO₂e/kg** with DQR 1.8 ✔. That replaces the default 0.85, and Cat 1 starch emissions fall from 14,620 t to **10,664 t**. Better data, not just lower numbers: a supplier with weak data (RCP Trader Benelux, DQR 3.6) is **not** accepted until it improves.
+
+---
+
+### 2.5 Avoiding common mistakes
+
+| Pitfall | How this model handles it |
+|---|---|
+| **Double counting internal flows** | Board sent to our own carton and gypsum plants is *not* in Cat 1, because its gas and power are already in Scope 1/2. Only third-party haulage of those transfers goes to Cat 4. |
+| **Adding both Scope 2 methods** | Both are reported, but only **market-based** goes into the total. |
+| **Netting biogenic carbon** | The CO₂ stored in fibre (~1,467 kg per t board) is shown as a memo item, never subtracted. |
+| **Burdening recycled material twice** | Cut-off approach: recovered paper and trim carry only collection/sorting emissions, and no recycling credit is claimed at end-of-life. |
+| **Silently skipping categories** | All 15 categories are screened; the 5 excluded ones are listed with a reason. |
+
+<details>
+<summary><b>Text-based flow diagrams (Mermaid)</b></summary>
+
+#### Scope flow
 
 ```mermaid
 flowchart LR
@@ -107,11 +204,7 @@ flowchart LR
     class GRID s2
 ```
 
-♻ **Closing the loop:** used cartons and board come back as recovered paper, and gypsum waste comes back as recycled gypsum. Both re-enter at the upstream end (see the dashed loop in the diagram above).
-
-### Scope 2: location-based vs market-based
-
-The same kilowatt-hours can be reported two ways. Both are required by the GHG Protocol Scope 2 Guidance.
+#### Scope 2 methods
 
 ```mermaid
 flowchart LR
@@ -124,25 +217,7 @@ flowchart LR
     R --> MBR
 ```
 
-> The residual mix is "dirtier" than the grid average because certified renewable power has already been claimed by others. That is why market-based Scope 2 is *higher* here until the renewable share goes up (lever L01).
-
-### The 15 Scope 3 categories in this business
-
-| # | Category | Status | Method | t CO₂e |
-|---|---|---|---|---:|
-| 1 | Purchased goods & services | ✅ | Hybrid: supplier PCFs + secondary data + spend-based | 52,951 |
-| 2 | Capital goods | ✅ | Spend-based | 12,250 |
-| 3 | Fuel- & energy-related activities | ✅ | Average-data (well-to-tank, T&D losses) | 40,932 |
-| 4 | Upstream transport & distribution | ✅ | Distance-based (t·km) | 26,626 |
-| 5 | Waste generated in operations | ✅ | Average-data | 20,025 |
-| 6 | Business travel | ✅ | Distance-based | 630 |
-| 7 | Employee commuting | ✅ | Average-data | 3,599 |
-| 8 | Upstream leased assets | ➖ | Not relevant (already in Scope 1/2) | – |
-| 9 | Downstream transport | ✅ | Distance-based (customer collection) | 4,940 |
-| 10 | Processing of sold products | ✅ | Proxy: own converting energy intensity | 24,443 |
-| 11 | Use of sold products | ➖ | Not relevant (no direct use-phase emissions) | – |
-| 12 | End-of-life treatment | ✅ | Average-data, biogenic CO₂ excluded | 14,775 |
-| 13-15 | Leased assets · franchises · investments | ➖ | Not relevant | – |
+</details>
 
 ---
 
@@ -275,7 +350,7 @@ flowchart LR
 ## 8. Repository structure & how to run
 
 ```
-circular-carbon-toolkit/
+Cardboad-example/
 ├── model/LCA_CO2_Supplier_Toolkit.xlsx   # the Excel model (13 sheets)
 ├── docs/index.html                        # interactive dashboard (GitHub Pages)
 ├── docs/methodology.md                    # standards, boundaries, assumptions

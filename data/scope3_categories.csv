@@ -1,0 +1,16 @@
+code,category,t_co2e,share
+S3-01,Cat 1 – Purchased goods & services,52951.0,0.2632
+S3-02,Cat 2 – Capital goods,12250.0,0.0609
+S3-03,Cat 3 – Fuel- & energy-related,40932.1705,0.2035
+S3-04,Cat 4 – Upstream transport,26625.5744,0.1324
+S3-05,Cat 5 – Waste in operations,20024.8364,0.0995
+S3-06,Cat 6 – Business travel,630.0,0.0031
+S3-07,Cat 7 – Employee commuting,3598.56,0.0179
+S3-08,Cat 8 – Upstream leased assets,0.0,0.0
+S3-09,Cat 9 – Downstream transport,4940.0,0.0246
+S3-10,Cat 10 – Processing of sold products,24442.704,0.1215
+S3-11,Cat 11 – Use of sold products,0.0,0.0
+S3-12,Cat 12 – End-of-life treatment,14775.0,0.0734
+S3-13,Cat 13 – Downstream leased assets,0.0,0.0
+S3-14,Cat 14 – Franchises,0.0,0.0
+S3-15,Cat 15 – Investments,0.0,0.0

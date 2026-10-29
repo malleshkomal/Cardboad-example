@@ -1,0 +1,1323 @@
+{
+ "year": "2025",
+ "summary": {
+  "Scope 1": 202028.5227,
+  "Scope 2 – location-based": 84231.675,
+  "Scope 2 – market-based": 107900.0795,
+  "Scope 3": 201169.8453,
+  "TOTAL Scope 1 + 2 (market-based) + 3": 511098.4475
+ },
+ "inventory": [
+  {
+   "code": "S1",
+   "source": "Board mills – natural gas",
+   "activity": 675440909.0909,
+   "unit": "kWh",
+   "ef": 0.201,
+   "t_co2e": 135763.6227,
+   "method": "Metered",
+   "dq": 1
+  },
+  {
+   "code": "S1",
+   "source": "Folding carton plants – natural gas",
+   "activity": 8400000.0,
+   "unit": "kWh",
+   "ef": 0.201,
+   "t_co2e": 1688.4,
+   "method": "Metered",
+   "dq": 1
+  },
+  {
+   "code": "S1",
+   "source": "Gypsum board plants – natural gas (calcination + drying)",
+   "activity": 301500000.0,
+   "unit": "kWh",
+   "ef": 0.201,
+   "t_co2e": 60601.5,
+   "method": "Metered",
+   "dq": 1
+  },
+  {
+   "code": "S1",
+   "source": "Mobile combustion – diesel",
+   "activity": 1500000.0,
+   "unit": "l",
+   "ef": 2.65,
+   "t_co2e": 3975.0,
+   "method": "Fuel records",
+   "dq": 1
+  },
+  {
+   "code": "S2-LB",
+   "source": "Electricity – location-based (all sites)",
+   "activity": 232043181.8182,
+   "unit": "kWh",
+   "ef": 0.363,
+   "t_co2e": 84231.675,
+   "method": "Metered",
+   "dq": 1
+  },
+  {
+   "code": "S2-MB",
+   "source": "Electricity – market-based (non-certified share × residual mix)",
+   "activity": 174032386.3636,
+   "unit": "kWh",
+   "ef": 0.62,
+   "t_co2e": 107900.0795,
+   "method": "Contracts",
+   "dq": 2
+  },
+  {
+   "code": "S3-01",
+   "source": "Cat 1 – Recovered paper",
+   "activity": 442000.0,
+   "unit": "t",
+   "ef": 0.0139,
+   "t_co2e": 6150.0,
+   "method": "Hybrid (supplier/avg)",
+   "dq": 2
+  },
+  {
+   "code": "S3-01",
+   "source": "Cat 1 – Native starch",
+   "activity": 17200.0,
+   "unit": "t",
+   "ef": 0.62,
+   "t_co2e": 10664.0,
+   "method": "Hybrid (supplier/avg)",
+   "dq": 2
+  },
+  {
+   "code": "S3-01",
+   "source": "Cat 1 – Calcium carbonate",
+   "activity": 11900.0,
+   "unit": "t",
+   "ef": 0.06,
+   "t_co2e": 714.0,
+   "method": "Hybrid (supplier/avg)",
+   "dq": 2
+  },
+  {
+   "code": "S3-01",
+   "source": "Cat 1 – Process chemicals",
+   "activity": 4000.0,
+   "unit": "t",
+   "ef": 2.0,
+   "t_co2e": 8000.0,
+   "method": "Hybrid (supplier/avg)",
+   "dq": 4
+  },
+  {
+   "code": "S3-01",
+   "source": "Cat 1 – Printing ink",
+   "activity": 1575.0,
+   "unit": "t",
+   "ef": 2.7,
+   "t_co2e": 4252.5,
+   "method": "Hybrid (supplier/avg)",
+   "dq": 2
+  },
+  {
+   "code": "S3-01",
+   "source": "Cat 1 – Varnish",
+   "activity": 840.0,
+   "unit": "t",
+   "ef": 2.5,
+   "t_co2e": 2100.0,
+   "method": "Hybrid (supplier/avg)",
+   "dq": 3
+  },
+  {
+   "code": "S3-01",
+   "source": "Cat 1 – Adhesive",
+   "activity": 525.0,
+   "unit": "t",
+   "ef": 1.5,
+   "t_co2e": 787.5,
+   "method": "Hybrid (supplier/avg)",
+   "dq": 3
+  },
+  {
+   "code": "S3-01",
+   "source": "Cat 1 – Stretch film",
+   "activity": 855.0,
+   "unit": "t",
+   "ef": 2.6,
+   "t_co2e": 2223.0,
+   "method": "Hybrid (supplier/avg)",
+   "dq": 3
+  },
+  {
+   "code": "S3-01",
+   "source": "Cat 1 – Natural gypsum",
+   "activity": 202500.0,
+   "unit": "t",
+   "ef": 0.005,
+   "t_co2e": 1012.5,
+   "method": "Hybrid (supplier/avg)",
+   "dq": 2
+  },
+  {
+   "code": "S3-01",
+   "source": "Cat 1 – FGD gypsum",
+   "activity": 121500.0,
+   "unit": "t",
+   "ef": 0.002,
+   "t_co2e": 243.0,
+   "method": "Hybrid (supplier/avg)",
+   "dq": 3
+  },
+  {
+   "code": "S3-01",
+   "source": "Cat 1 – Recycled gypsum",
+   "activity": 81000.0,
+   "unit": "t",
+   "ef": 0.007,
+   "t_co2e": 567.0,
+   "method": "Hybrid (supplier/avg)",
+   "dq": 2
+  },
+  {
+   "code": "S3-01",
+   "source": "Cat 1 – Glass fibre",
+   "activity": 450.0,
+   "unit": "t",
+   "ef": 1.6,
+   "t_co2e": 720.0,
+   "method": "Hybrid (supplier/avg)",
+   "dq": 3
+  },
+  {
+   "code": "S3-01",
+   "source": "Cat 1 – Gypsum additives",
+   "activity": 225.0,
+   "unit": "t",
+   "ef": 2.3,
+   "t_co2e": 517.5,
+   "method": "Hybrid (supplier/avg)",
+   "dq": 4
+  },
+  {
+   "code": "S3-01",
+   "source": "Cat 1 – Indirect procurement (spend-based)",
+   "activity": 60000000.0,
+   "unit": "EUR",
+   "ef": 0.25,
+   "t_co2e": 15000.0,
+   "method": "Spend-based",
+   "dq": 5
+  },
+  {
+   "code": "S3-02",
+   "source": "Cat 2 – Capital goods",
+   "activity": 35000000.0,
+   "unit": "EUR",
+   "ef": 0.35,
+   "t_co2e": 12250.0,
+   "method": "Spend-based",
+   "dq": 5
+  },
+  {
+   "code": "S3-03",
+   "source": "Cat 3 – Natural gas upstream",
+   "activity": 985340909.0909,
+   "unit": "kWh",
+   "ef": 0.03,
+   "t_co2e": 29560.2273,
+   "method": "Average-data",
+   "dq": 3
+  },
+  {
+   "code": "S3-03",
+   "source": "Cat 3 – Electricity upstream & T&D losses",
+   "activity": 232043181.8182,
+   "unit": "kWh",
+   "ef": 0.045,
+   "t_co2e": 10441.9432,
+   "method": "Average-data",
+   "dq": 3
+  },
+  {
+   "code": "S3-03",
+   "source": "Cat 3 – Diesel upstream",
+   "activity": 1500000.0,
+   "unit": "l",
+   "ef": 0.62,
+   "t_co2e": 930.0,
+   "method": "Average-data",
+   "dq": 3
+  },
+  {
+   "code": "S3-04",
+   "source": "Cat 4 – Inbound RCP transport",
+   "activity": 66389659.0909,
+   "unit": "tkm",
+   "ef": 0.095,
+   "t_co2e": 6307.0176,
+   "method": "Distance-based",
+   "dq": 3
+  },
+  {
+   "code": "S3-04",
+   "source": "Cat 4 – Inbound gypsum transport",
+   "activity": 32400000.0,
+   "unit": "tkm",
+   "ef": 0.095,
+   "t_co2e": 3078.0,
+   "method": "Distance-based",
+   "dq": 3
+  },
+  {
+   "code": "S3-04",
+   "source": "Cat 4 – Internal transfers board → plants (3rd-party hauliers)",
+   "activity": 35229545.4545,
+   "unit": "tkm",
+   "ef": 0.095,
+   "t_co2e": 3346.8068,
+   "method": "Distance-based",
+   "dq": 3
+  },
+  {
+   "code": "S3-04",
+   "source": "Cat 4 – Outbound deliveries paid by company (FC + gypsum board)",
+   "activity": 146250000.0,
+   "unit": "tkm",
+   "ef": 0.095,
+   "t_co2e": 13893.75,
+   "method": "Distance-based",
+   "dq": 4
+  },
+  {
+   "code": "S3-05",
+   "source": "Cat 5 – Water & wastewater (board mills)",
+   "activity": 3178545.4545,
+   "unit": "m³",
+   "ef": 0.3,
+   "t_co2e": 953.5636,
+   "method": "Average-data",
+   "dq": 3
+  },
+  {
+   "code": "S3-05",
+   "source": "Cat 5 – Pulper rejects to incineration",
+   "activity": 31785454.5455,
+   "unit": "kg",
+   "ef": 0.6,
+   "t_co2e": 19071.2727,
+   "method": "Average-data",
+   "dq": 3
+  },
+  {
+   "code": "S3-06",
+   "source": "Cat 6 – Business travel",
+   "activity": 4200000.0,
+   "unit": "pkm",
+   "ef": 0.15,
+   "t_co2e": 630.0,
+   "method": "Distance-based",
+   "dq": 3
+  },
+  {
+   "code": "S3-07",
+   "source": "Cat 7 – Employee commuting",
+   "activity": 21168000.0,
+   "unit": "pkm",
+   "ef": 0.17,
+   "t_co2e": 3598.56,
+   "method": "Average-data",
+   "dq": 4
+  },
+  {
+   "code": "S3-09",
+   "source": "Cat 9 – External board collected by customers",
+   "activity": 52000000.0,
+   "unit": "tkm",
+   "ef": 0.095,
+   "t_co2e": 4940.0,
+   "method": "Distance-based",
+   "dq": 4
+  },
+  {
+   "code": "S3-10",
+   "source": "Cat 10 – Processing of sold board by external converters",
+   "activity": 260000.0,
+   "unit": "t",
+   "ef": 94.0104,
+   "t_co2e": 24442.704,
+   "method": "Proxy: own converting",
+   "dq": 4
+  },
+  {
+   "code": "S3-08",
+   "source": "Cat 8 – Upstream leased assets: not relevant (included in Scope 1/2)",
+   "activity": null,
+   "unit": null,
+   "ef": null,
+   "t_co2e": 0.0,
+   "method": "Excluded – justified",
+   "dq": null
+  },
+  {
+   "code": "S3-11",
+   "source": "Cat 11 – Use of sold products: not relevant (no direct use-phase emissions)",
+   "activity": null,
+   "unit": null,
+   "ef": null,
+   "t_co2e": 0.0,
+   "method": "Excluded – justified",
+   "dq": null
+  },
+  {
+   "code": "S3-12",
+   "source": "Cat 12 – End-of-life folding cartons & board",
+   "activity": 365000000.0,
+   "unit": "kg",
+   "ef": 0.03,
+   "t_co2e": 10950.0,
+   "method": "Average-data",
+   "dq": 4
+  },
+  {
+   "code": "S3-12",
+   "source": "Cat 12 – End-of-life gypsum board",
+   "activity": 382500000.0,
+   "unit": "kg",
+   "ef": 0.01,
+   "t_co2e": 3825.0,
+   "method": "Average-data",
+   "dq": 4
+  },
+  {
+   "code": "S3-13",
+   "source": "Cat 13 – Downstream leased assets: not relevant",
+   "activity": null,
+   "unit": null,
+   "ef": null,
+   "t_co2e": 0.0,
+   "method": "Excluded – justified",
+   "dq": null
+  },
+  {
+   "code": "S3-14",
+   "source": "Cat 14 – Franchises: not relevant",
+   "activity": null,
+   "unit": null,
+   "ef": null,
+   "t_co2e": 0.0,
+   "method": "Excluded – justified",
+   "dq": null
+  },
+  {
+   "code": "S3-15",
+   "source": "Cat 15 – Investments: not relevant (no material minority holdings)",
+   "activity": null,
+   "unit": null,
+   "ef": null,
+   "t_co2e": 0.0,
+   "method": "Excluded – justified",
+   "dq": null
+  }
+ ],
+ "scope3_categories": [
+  {
+   "code": "S3-01",
+   "category": "Cat 1 – Purchased goods & services",
+   "t_co2e": 52951.0,
+   "share": 0.2632
+  },
+  {
+   "code": "S3-02",
+   "category": "Cat 2 – Capital goods",
+   "t_co2e": 12250.0,
+   "share": 0.0609
+  },
+  {
+   "code": "S3-03",
+   "category": "Cat 3 – Fuel- & energy-related",
+   "t_co2e": 40932.1705,
+   "share": 0.2035
+  },
+  {
+   "code": "S3-04",
+   "category": "Cat 4 – Upstream transport",
+   "t_co2e": 26625.5744,
+   "share": 0.1324
+  },
+  {
+   "code": "S3-05",
+   "category": "Cat 5 – Waste in operations",
+   "t_co2e": 20024.8364,
+   "share": 0.0995
+  },
+  {
+   "code": "S3-06",
+   "category": "Cat 6 – Business travel",
+   "t_co2e": 630.0,
+   "share": 0.0031
+  },
+  {
+   "code": "S3-07",
+   "category": "Cat 7 – Employee commuting",
+   "t_co2e": 3598.56,
+   "share": 0.0179
+  },
+  {
+   "code": "S3-08",
+   "category": "Cat 8 – Upstream leased assets",
+   "t_co2e": 0.0,
+   "share": 0.0
+  },
+  {
+   "code": "S3-09",
+   "category": "Cat 9 – Downstream transport",
+   "t_co2e": 4940.0,
+   "share": 0.0246
+  },
+  {
+   "code": "S3-10",
+   "category": "Cat 10 – Processing of sold products",
+   "t_co2e": 24442.704,
+   "share": 0.1215
+  },
+  {
+   "code": "S3-11",
+   "category": "Cat 11 – Use of sold products",
+   "t_co2e": 0.0,
+   "share": 0.0
+  },
+  {
+   "code": "S3-12",
+   "category": "Cat 12 – End-of-life treatment",
+   "t_co2e": 14775.0,
+   "share": 0.0734
+  },
+  {
+   "code": "S3-13",
+   "category": "Cat 13 – Downstream leased assets",
+   "t_co2e": 0.0,
+   "share": 0.0
+  },
+  {
+   "code": "S3-14",
+   "category": "Cat 14 – Franchises",
+   "t_co2e": 0.0,
+   "share": 0.0
+  },
+  {
+   "code": "S3-15",
+   "category": "Cat 15 – Investments",
+   "t_co2e": 0.0,
+   "share": 0.0
+  }
+ ],
+ "pcf": {
+  "board": {
+   "unit": "kg CO2e / t",
+   "total": 716.7375,
+   "items": [
+    {
+     "stage": "A1 Raw materials",
+     "input": "Recovered paper (collection & sorting)",
+     "kg_co2e": 17.25,
+     "scope": "Scope 3 Cat 1"
+    },
+    {
+     "stage": "A1 Raw materials",
+     "input": "Native starch (surface & wet-end)",
+     "kg_co2e": 34.0,
+     "scope": "Scope 3 Cat 1"
+    },
+    {
+     "stage": "A1 Raw materials",
+     "input": "Calcium carbonate filler",
+     "kg_co2e": 2.4,
+     "scope": "Scope 3 Cat 1"
+    },
+    {
+     "stage": "A1 Raw materials",
+     "input": "Process chemicals",
+     "kg_co2e": 20.0,
+     "scope": "Scope 3 Cat 1"
+    },
+    {
+     "stage": "A2 Transport",
+     "input": "Inbound transport recovered paper",
+     "kg_co2e": 16.3875,
+     "scope": "Scope 3 Cat 4"
+    },
+    {
+     "stage": "A3 Manufacturing",
+     "input": "Natural gas – steam & drying (CHP/boiler)",
+     "kg_co2e": 341.7,
+     "scope": "Scope 1"
+    },
+    {
+     "stage": "A3 Manufacturing",
+     "input": "Natural gas – upstream",
+     "kg_co2e": 51.0,
+     "scope": "Scope 3 Cat 3"
+    },
+    {
+     "stage": "A3 Manufacturing",
+     "input": "Grid electricity (location-based)",
+     "kg_co2e": 163.35,
+     "scope": "Scope 2"
+    },
+    {
+     "stage": "A3 Manufacturing",
+     "input": "Electricity – upstream & losses",
+     "kg_co2e": 20.25,
+     "scope": "Scope 3 Cat 3"
+    },
+    {
+     "stage": "A3 Manufacturing",
+     "input": "Water & wastewater treatment",
+     "kg_co2e": 2.4,
+     "scope": "Scope 3 Cat 5"
+    },
+    {
+     "stage": "A3 Manufacturing",
+     "input": "Pulper rejects to incineration",
+     "kg_co2e": 48.0,
+     "scope": "Scope 3 Cat 5"
+    }
+   ]
+  },
+  "carton": {
+   "unit": "kg CO2e / t",
+   "total": 1056.5885,
+   "items": [
+    {
+     "stage": "A1 Raw materials",
+     "input": "Recycled cartonboard (own mill)",
+     "kg_co2e": 814.4744,
+     "scope": "Scope 1/2/3 (internal)"
+    },
+    {
+     "stage": "A1 Raw materials",
+     "input": "Offset printing inks",
+     "kg_co2e": 48.0,
+     "scope": "Scope 3 Cat 1"
+    },
+    {
+     "stage": "A1 Raw materials",
+     "input": "Overprint varnish",
+     "kg_co2e": 20.0,
+     "scope": "Scope 3 Cat 1"
+    },
+    {
+     "stage": "A1 Raw materials",
+     "input": "Dispersion adhesive (gluing)",
+     "kg_co2e": 9.0,
+     "scope": "Scope 3 Cat 1"
+    },
+    {
+     "stage": "A1 Raw materials",
+     "input": "Packaging – LDPE stretch film",
+     "kg_co2e": 15.6,
+     "scope": "Scope 3 Cat 1"
+    },
+    {
+     "stage": "A2 Transport",
+     "input": "Board transport mill → plant",
+     "kg_co2e": 26.9886,
+     "scope": "Scope 3 Cat 4"
+    },
+    {
+     "stage": "A3 Manufacturing",
+     "input": "Natural gas – heating & ink drying",
+     "kg_co2e": 16.08,
+     "scope": "Scope 1"
+    },
+    {
+     "stage": "A3 Manufacturing",
+     "input": "Natural gas – upstream",
+     "kg_co2e": 2.4,
+     "scope": "Scope 3 Cat 3"
+    },
+    {
+     "stage": "A3 Manufacturing",
+     "input": "Electricity – printing, die-cutting, gluing",
+     "kg_co2e": 90.75,
+     "scope": "Scope 2"
+    },
+    {
+     "stage": "A3 Manufacturing",
+     "input": "Electricity – upstream & losses",
+     "kg_co2e": 11.25,
+     "scope": "Scope 3 Cat 3"
+    },
+    {
+     "stage": "A3 Manufacturing",
+     "input": "Trim waste → own mill as RCP (closed loop)",
+     "kg_co2e": 2.0455,
+     "scope": "Scope 3 Cat 1"
+    }
+   ]
+  },
+  "gypsum": {
+   "unit": "kg CO2e / 1,000 m2",
+   "total": 2262.795,
+   "items": [
+    {
+     "stage": "A1 Raw materials",
+     "input": "Natural gypsum",
+     "kg_co2e": 18.0,
+     "scope": "Scope 3 Cat 1"
+    },
+    {
+     "stage": "A1 Raw materials",
+     "input": "FGD gypsum",
+     "kg_co2e": 5.4,
+     "scope": "Scope 3 Cat 1"
+    },
+    {
+     "stage": "A1 Raw materials",
+     "input": "Recycled gypsum",
+     "kg_co2e": 14.4,
+     "scope": "Scope 3 Cat 1"
+    },
+    {
+     "stage": "A1 Raw materials",
+     "input": "Liner board (own recycled mill)",
+     "kg_co2e": 286.695,
+     "scope": "Scope 1/2/3 (internal)"
+    },
+    {
+     "stage": "A1 Raw materials",
+     "input": "Starch (core bonding)",
+     "kg_co2e": 25.5,
+     "scope": "Scope 3 Cat 1"
+    },
+    {
+     "stage": "A1 Raw materials",
+     "input": "Glass fibre",
+     "kg_co2e": 16.0,
+     "scope": "Scope 3 Cat 1"
+    },
+    {
+     "stage": "A1 Raw materials",
+     "input": "Additives & foaming agent",
+     "kg_co2e": 11.5,
+     "scope": "Scope 3 Cat 1"
+    },
+    {
+     "stage": "A1 Raw materials",
+     "input": "Packaging – LDPE film",
+     "kg_co2e": 13.0,
+     "scope": "Scope 3 Cat 1"
+    },
+    {
+     "stage": "A2 Transport",
+     "input": "Gypsum inbound transport",
+     "kg_co2e": 68.4,
+     "scope": "Scope 3 Cat 4"
+    },
+    {
+     "stage": "A2 Transport",
+     "input": "Liner board transport mill → plant",
+     "kg_co2e": 11.4,
+     "scope": "Scope 3 Cat 4"
+    },
+    {
+     "stage": "A3 Manufacturing",
+     "input": "Natural gas – calcination",
+     "kg_co2e": 442.2,
+     "scope": "Scope 1"
+    },
+    {
+     "stage": "A3 Manufacturing",
+     "input": "Natural gas – board drying",
+     "kg_co2e": 904.5,
+     "scope": "Scope 1"
+    },
+    {
+     "stage": "A3 Manufacturing",
+     "input": "Natural gas – upstream",
+     "kg_co2e": 201.0,
+     "scope": "Scope 3 Cat 3"
+    },
+    {
+     "stage": "A3 Manufacturing",
+     "input": "Electricity",
+     "kg_co2e": 217.8,
+     "scope": "Scope 2"
+    },
+    {
+     "stage": "A3 Manufacturing",
+     "input": "Electricity – upstream & losses",
+     "kg_co2e": 27.0,
+     "scope": "Scope 3 Cat 3"
+    }
+   ]
+  }
+ },
+ "suppliers": [
+  {
+   "id": "S01",
+   "name": "Recycling Partner North",
+   "country": "DE",
+   "material": "Recovered paper",
+   "volume_t": 160000.0,
+   "spend_keur": 19200.0,
+   "supplier_pcf": 0.012,
+   "dqr": 2.0,
+   "data_basis": "Supplier-specific",
+   "t_co2e": 1920.0,
+   "ecovadis": 68,
+   "score": 75.6,
+   "rating": "A – Strategic partner",
+   "risk_index": 1.2344,
+   "sbti": "Y",
+   "action": "Joint decarb. roadmap, PCF exchange"
+  },
+  {
+   "id": "S02",
+   "name": "Recycling Partner South",
+   "country": "DE",
+   "material": "Recovered paper",
+   "volume_t": 135000.0,
+   "spend_keur": 16200.0,
+   "supplier_pcf": null,
+   "dqr": null,
+   "data_basis": "Secondary (no PCF)",
+   "t_co2e": 2025.0,
+   "ecovadis": null,
+   "score": 42.25,
+   "rating": "C – Improvement plan",
+   "risk_index": 3.0814,
+   "sbti": "N",
+   "action": "Corrective action plan within 6 months"
+  },
+  {
+   "id": "S03",
+   "name": "Municipal Paper Collection Pool",
+   "country": "DE",
+   "material": "Recovered paper",
+   "volume_t": 92000.0,
+   "spend_keur": 10100.0,
+   "supplier_pcf": null,
+   "dqr": null,
+   "data_basis": "Secondary (no PCF)",
+   "t_co2e": 1380.0,
+   "ecovadis": null,
+   "score": 33.25,
+   "rating": "D – Escalate",
+   "risk_index": 2.4272,
+   "sbti": "N",
+   "action": "Escalate to category mgmt; audit"
+  },
+  {
+   "id": "S04",
+   "name": "RCP Trader Benelux",
+   "country": "NL",
+   "material": "Recovered paper",
+   "volume_t": 55000.0,
+   "spend_keur": 6900.0,
+   "supplier_pcf": 0.02,
+   "dqr": 3.6,
+   "data_basis": "Secondary (DQR fail)",
+   "t_co2e": 825.0,
+   "ecovadis": 45,
+   "score": 37.0,
+   "rating": "D – Escalate",
+   "risk_index": 1.3695,
+   "sbti": "N",
+   "action": "Escalate to category mgmt; audit"
+  },
+  {
+   "id": "S05",
+   "name": "Starch Mill Central",
+   "country": "DE",
+   "material": "Native starch",
+   "volume_t": 17200.0,
+   "spend_keur": 8600.0,
+   "supplier_pcf": 0.62,
+   "dqr": 1.8,
+   "data_basis": "Supplier-specific",
+   "t_co2e": 10664.0,
+   "ecovadis": 74,
+   "score": 79.7,
+   "rating": "A – Strategic partner",
+   "risk_index": 5.7042,
+   "sbti": "Y",
+   "action": "Joint decarb. roadmap, PCF exchange"
+  },
+  {
+   "id": "S06",
+   "name": "Mineral Fillers Alpine",
+   "country": "AT",
+   "material": "Calcium carbonate",
+   "volume_t": 11900.0,
+   "spend_keur": 1500.0,
+   "supplier_pcf": 0.06,
+   "dqr": 2.4,
+   "data_basis": "Supplier-specific",
+   "t_co2e": 714.0,
+   "ecovadis": 61,
+   "score": 60.8,
+   "rating": "B – Develop",
+   "risk_index": 0.7375,
+   "sbti": "N",
+   "action": "Request EcoVadis + SBTi commitment"
+  },
+  {
+   "id": "S07",
+   "name": "ProcessChem Solutions",
+   "country": "DE",
+   "material": "Process chemicals",
+   "volume_t": 4000.0,
+   "spend_keur": 9200.0,
+   "supplier_pcf": null,
+   "dqr": null,
+   "data_basis": "Secondary (no PCF)",
+   "t_co2e": 8000.0,
+   "ecovadis": 52,
+   "score": 42.75,
+   "rating": "C – Improvement plan",
+   "risk_index": 12.0682,
+   "sbti": "N",
+   "action": "Corrective action plan within 6 months"
+  },
+  {
+   "id": "S08",
+   "name": "PrintInk Europe",
+   "country": "DE",
+   "material": "Printing ink",
+   "volume_t": 1575.0,
+   "spend_keur": 7900.0,
+   "supplier_pcf": 2.7,
+   "dqr": 1.8,
+   "data_basis": "Supplier-specific",
+   "t_co2e": 4252.5,
+   "ecovadis": 70,
+   "score": 76.7,
+   "rating": "A – Strategic partner",
+   "risk_index": 2.6108,
+   "sbti": "Y",
+   "action": "Joint decarb. roadmap, PCF exchange"
+  },
+  {
+   "id": "S09",
+   "name": "CoatTech Varnish",
+   "country": "IT",
+   "material": "Varnish",
+   "volume_t": 840.0,
+   "spend_keur": 3400.0,
+   "supplier_pcf": null,
+   "dqr": null,
+   "data_basis": "Secondary (no PCF)",
+   "t_co2e": 2100.0,
+   "ecovadis": null,
+   "score": 40.05,
+   "rating": "C – Improvement plan",
+   "risk_index": 3.3173,
+   "sbti": "N",
+   "action": "Corrective action plan within 6 months"
+  },
+  {
+   "id": "S10",
+   "name": "BondWell Adhesives",
+   "country": "DE",
+   "material": "Adhesive",
+   "volume_t": 525.0,
+   "spend_keur": 1600.0,
+   "supplier_pcf": 1.5,
+   "dqr": 2.4,
+   "data_basis": "Supplier-specific",
+   "t_co2e": 787.5,
+   "ecovadis": 58,
+   "score": 54.35,
+   "rating": "C – Improvement plan",
+   "risk_index": 0.9473,
+   "sbti": "N",
+   "action": "Corrective action plan within 6 months"
+  },
+  {
+   "id": "S11",
+   "name": "FilmPack Poly",
+   "country": "PL",
+   "material": "Stretch film",
+   "volume_t": 855.0,
+   "spend_keur": 1700.0,
+   "supplier_pcf": null,
+   "dqr": null,
+   "data_basis": "Secondary (no PCF)",
+   "t_co2e": 2223.0,
+   "ecovadis": null,
+   "score": 31.8,
+   "rating": "D – Escalate",
+   "risk_index": 3.9949,
+   "sbti": "N",
+   "action": "Escalate to category mgmt; audit"
+  },
+  {
+   "id": "S12",
+   "name": "Gypsum Quarry Harz",
+   "country": "DE",
+   "material": "Natural gypsum",
+   "volume_t": 202500.0,
+   "spend_keur": 4100.0,
+   "supplier_pcf": 0.005,
+   "dqr": 1.6,
+   "data_basis": "Supplier-specific",
+   "t_co2e": 1012.5,
+   "ecovadis": 63,
+   "score": 61.2,
+   "rating": "B – Develop",
+   "risk_index": 1.0352,
+   "sbti": "N",
+   "action": "Request EcoVadis + SBTi commitment"
+  },
+  {
+   "id": "S13",
+   "name": "Power Plant By-Products",
+   "country": "DE",
+   "material": "FGD gypsum",
+   "volume_t": 121500.0,
+   "spend_keur": 1800.0,
+   "supplier_pcf": null,
+   "dqr": null,
+   "data_basis": "Secondary (no PCF)",
+   "t_co2e": 243.0,
+   "ecovadis": null,
+   "score": 39.25,
+   "rating": "D – Escalate",
+   "risk_index": 0.389,
+   "sbti": "N",
+   "action": "Escalate to category mgmt; audit"
+  },
+  {
+   "id": "S14",
+   "name": "Gypsum Recycling West",
+   "country": "DE",
+   "material": "Recycled gypsum",
+   "volume_t": 81000.0,
+   "spend_keur": 2400.0,
+   "supplier_pcf": 0.007,
+   "dqr": 1.8,
+   "data_basis": "Supplier-specific",
+   "t_co2e": 567.0,
+   "ecovadis": 66,
+   "score": 69.75,
+   "rating": "B – Develop",
+   "risk_index": 0.4519,
+   "sbti": "Y",
+   "action": "Request EcoVadis + SBTi commitment"
+  },
+  {
+   "id": "S15",
+   "name": "GlassFibre Components",
+   "country": "CZ",
+   "material": "Glass fibre",
+   "volume_t": 450.0,
+   "spend_keur": 900.0,
+   "supplier_pcf": null,
+   "dqr": null,
+   "data_basis": "Secondary (no PCF)",
+   "t_co2e": 720.0,
+   "ecovadis": null,
+   "score": 40.25,
+   "rating": "C – Improvement plan",
+   "risk_index": 1.1336,
+   "sbti": "N",
+   "action": "Corrective action plan within 6 months"
+  },
+  {
+   "id": "S16",
+   "name": "BuildAdd Chemicals",
+   "country": "DE",
+   "material": "Gypsum additives",
+   "volume_t": 225.0,
+   "spend_keur": 1100.0,
+   "supplier_pcf": null,
+   "dqr": null,
+   "data_basis": "Secondary (no PCF)",
+   "t_co2e": 517.5,
+   "ecovadis": null,
+   "score": 34.5,
+   "rating": "D – Escalate",
+   "risk_index": 0.8932,
+   "sbti": "N",
+   "action": "Escalate to category mgmt; audit"
+  }
+ ],
+ "levers": [
+  {
+   "id": "L01",
+   "lever": "Additional renewable PPA (+50% of electricity)",
+   "scope": "S2",
+   "reduction_t": 71933.3864,
+   "capex_keur": 0.0,
+   "cost_eur_t": 25.0232,
+   "start": "2026",
+   "priority": "High – below CO₂ price"
+  },
+  {
+   "id": "L02",
+   "lever": "Heat pumps / MVR for board drying steam",
+   "scope": "S1",
+   "reduction_t": 27152.7245,
+   "capex_keur": 38000.0,
+   "cost_eur_t": 36.8287,
+   "start": "2027",
+   "priority": "High – below CO₂ price"
+  },
+  {
+   "id": "L03",
+   "lever": "Electrode boiler on renewable power (board mill)",
+   "scope": "S1",
+   "reduction_t": 20364.5434,
+   "capex_keur": 9000.0,
+   "cost_eur_t": 103.1204,
+   "start": "2028",
+   "priority": "Medium"
+  },
+  {
+   "id": "L04",
+   "lever": "Heat recovery in gypsum board dryers",
+   "scope": "S1",
+   "reduction_t": 7272.18,
+   "capex_keur": 6000.0,
+   "cost_eur_t": -41.2531,
+   "start": "2026",
+   "priority": "Quick win (saves)"
+  },
+  {
+   "id": "L05",
+   "lever": "Biomethane for gypsum calcination (share)",
+   "scope": "S1",
+   "reduction_t": 3385.8,
+   "capex_keur": 500.0,
+   "cost_eur_t": 487.3294,
+   "start": "2027",
+   "priority": "Low"
+  },
+  {
+   "id": "L06",
+   "lever": "Low-carbon starch (supplier engagement, −30% EF)",
+   "scope": "S3-1",
+   "reduction_t": 3199.2,
+   "capex_keur": 0.0,
+   "cost_eur_t": 78.1445,
+   "start": "2026",
+   "priority": "High – below CO₂ price"
+  },
+  {
+   "id": "L07",
+   "lever": "Low-carbon / bio-based inks (−25% EF)",
+   "scope": "S3-1",
+   "reduction_t": 1063.125,
+   "capex_keur": 0.0,
+   "cost_eur_t": 141.0935,
+   "start": "2026",
+   "priority": "Medium"
+  },
+  {
+   "id": "L08",
+   "lever": "Modal shift RCP inbound to rail (share of tkm)",
+   "scope": "S3-4",
+   "reduction_t": 1779.2429,
+   "capex_keur": 0.0,
+   "cost_eur_t": 168.611,
+   "start": "2027",
+   "priority": "Medium"
+  },
+  {
+   "id": "L09",
+   "lever": "Board lightweighting in folding cartons (−5% grammage)",
+   "scope": "Mixed",
+   "reduction_t": 4275.9908,
+   "capex_keur": 1500.0,
+   "cost_eur_t": -245.5571,
+   "start": "2026",
+   "priority": "Quick win (saves)"
+  },
+  {
+   "id": "L10",
+   "lever": "Electric collection trucks at RCP suppliers (−30%)",
+   "scope": "S3-1",
+   "reduction_t": 1845.0,
+   "capex_keur": 0.0,
+   "cost_eur_t": 54.2005,
+   "start": "2028",
+   "priority": "High – below CO₂ price"
+  }
+ ],
+ "kpis": [
+  {
+   "group": "Climate",
+   "kpi": "Total GHG emissions (S1 + S2 MB + S3)",
+   "actual": 511098.4475,
+   "unit": "t CO₂e",
+   "target": null,
+   "status": "Monitor"
+  },
+  {
+   "group": "Climate",
+   "kpi": "Scope 1",
+   "actual": 202028.5227,
+   "unit": "t CO₂e",
+   "target": null,
+   "status": "Monitor"
+  },
+  {
+   "group": "Climate",
+   "kpi": "Scope 2 (market-based)",
+   "actual": 107900.0795,
+   "unit": "t CO₂e",
+   "target": null,
+   "status": "Monitor"
+  },
+  {
+   "group": "Climate",
+   "kpi": "Scope 3",
+   "actual": 201169.8453,
+   "unit": "t CO₂e",
+   "target": null,
+   "status": "Monitor"
+  },
+  {
+   "group": "Climate",
+   "kpi": "Scope 3 share of total",
+   "actual": 0.3936,
+   "unit": "%",
+   "target": null,
+   "status": "Monitor"
+  },
+  {
+   "group": "Product Carbon Footprints",
+   "kpi": "PCF recycled cartonboard",
+   "actual": 716.7375,
+   "unit": "kg CO₂e/t",
+   "target": 550.0,
+   "status": "✖ Gap"
+  },
+  {
+   "group": "Product Carbon Footprints",
+   "kpi": "PCF folding carton",
+   "actual": 1056.5885,
+   "unit": "kg CO₂e/t",
+   "target": 750.0,
+   "status": "✖ Gap"
+  },
+  {
+   "group": "Product Carbon Footprints",
+   "kpi": "PCF gypsum board",
+   "actual": 2.2628,
+   "unit": "kg CO₂e/m²",
+   "target": 1.8,
+   "status": "✖ Gap"
+  },
+  {
+   "group": "Supplier data & procurement",
+   "kpi": "Cat 1 emissions based on supplier-specific data",
+   "actual": 0.5248,
+   "unit": "%",
+   "target": 0.5,
+   "status": "✔ On track"
+  },
+  {
+   "group": "Supplier data & procurement",
+   "kpi": "Suppliers (by spend) with EcoVadis assessment",
+   "actual": 0.6356,
+   "unit": "%",
+   "target": 0.8,
+   "status": "✖ Gap"
+  },
+  {
+   "group": "Supplier data & procurement",
+   "kpi": "Spend with A/B-rated suppliers",
+   "actual": 0.4524,
+   "unit": "%",
+   "target": 0.75,
+   "status": "✖ Gap"
+  },
+  {
+   "group": "Supplier data & procurement",
+   "kpi": "Cat 1 emissions with suppliers having SBTi targets",
+   "actual": 0.4586,
+   "unit": "%",
+   "target": 0.67,
+   "status": "✖ Gap"
+  },
+  {
+   "group": "Supplier data & procurement",
+   "kpi": "Average supplier ESG score (spend-weighted)",
+   "actual": 55.3135,
+   "unit": "pts",
+   "target": 60.0,
+   "status": "✖ Gap"
+  },
+  {
+   "group": "Supplier data & procurement",
+   "kpi": "Average DQR of supplier PCFs",
+   "actual": 2.175,
+   "unit": "1-5",
+   "target": 2.5,
+   "status": "✔ On track"
+  },
+  {
+   "group": "Supplier data & procurement",
+   "kpi": "Suppliers rated D – escalation needed",
+   "actual": 5.0,
+   "unit": "#",
+   "target": 0.0,
+   "status": "✖ Gap"
+  },
+  {
+   "group": "Circularity & data quality",
+   "kpi": "Recycled fibre share in board",
+   "actual": 1.0,
+   "unit": "%",
+   "target": 1.0,
+   "status": "✔ On track"
+  },
+  {
+   "group": "Circularity & data quality",
+   "kpi": "Internal trim recycled in closed loop",
+   "actual": 14318.1818,
+   "unit": "t",
+   "target": null,
+   "status": "Monitor"
+  },
+  {
+   "group": "Circularity & data quality",
+   "kpi": "Recycled gypsum share",
+   "actual": 0.2,
+   "unit": "%",
+   "target": 0.3,
+   "status": "✖ Gap"
+  },
+  {
+   "group": "Circularity & data quality",
+   "kpi": "Mass balance deviation RCP (register vs. need)",
+   "actual": 0.0014,
+   "unit": "%",
+   "target": 0.02,
+   "status": "✔ On track"
+  },
+  {
+   "group": "Decarbonisation",
+   "kpi": "Identified reduction potential",
+   "actual": 142271.1929,
+   "unit": "t CO₂e/yr",
+   "target": null,
+   "status": "Monitor"
+  },
+  {
+   "group": "Decarbonisation",
+   "kpi": "… as % of total inventory",
+   "actual": 0.2784,
+   "unit": "%",
+   "target": 0.2,
+   "status": "✔ On track"
+  }
+ ],
+ "pcf_headline": {
+  "board_kg_t": 716.7375,
+  "carton_kg_t": 1056.5885,
+  "gypsum_kg_m2": 2.263
+ }
+}

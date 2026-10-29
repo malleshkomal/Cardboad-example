@@ -1,0 +1,22 @@
+group,kpi,actual,unit,target,status
+Climate,Total GHG emissions (S1 + S2 MB + S3),511098.4475,t CO₂e,,Monitor
+Climate,Scope 1,202028.5227,t CO₂e,,Monitor
+Climate,Scope 2 (market-based),107900.0795,t CO₂e,,Monitor
+Climate,Scope 3,201169.8453,t CO₂e,,Monitor
+Climate,Scope 3 share of total,0.3936,%,,Monitor
+Product Carbon Footprints,PCF recycled cartonboard,716.7375,kg CO₂e/t,550.0,✖ Gap
+Product Carbon Footprints,PCF folding carton,1056.5885,kg CO₂e/t,750.0,✖ Gap
+Product Carbon Footprints,PCF gypsum board,2.2628,kg CO₂e/m²,1.8,✖ Gap
+Supplier data & procurement,Cat 1 emissions based on supplier-specific data,0.5248,%,0.5,✔ On track
+Supplier data & procurement,Suppliers (by spend) with EcoVadis assessment,0.6356,%,0.8,✖ Gap
+Supplier data & procurement,Spend with A/B-rated suppliers,0.4524,%,0.75,✖ Gap
+Supplier data & procurement,Cat 1 emissions with suppliers having SBTi targets,0.4586,%,0.67,✖ Gap
+Supplier data & procurement,Average supplier ESG score (spend-weighted),55.3135,pts,60.0,✖ Gap
+Supplier data & procurement,Average DQR of supplier PCFs,2.175,1-5,2.5,✔ On track
+Supplier data & procurement,Suppliers rated D – escalation needed,5.0,#,0.0,✖ Gap
+Circularity & data quality,Recycled fibre share in board,1.0,%,1.0,✔ On track
+Circularity & data quality,Internal trim recycled in closed loop,14318.1818,t,,Monitor
+Circularity & data quality,Recycled gypsum share,0.2,%,0.3,✖ Gap
+Circularity & data quality,Mass balance deviation RCP (register vs. need),0.0014,%,0.02,✔ On track
+Decarbonisation,Identified reduction potential,142271.1929,t CO₂e/yr,,Monitor
+Decarbonisation,… as % of total inventory,0.2784,%,0.2,✔ On track

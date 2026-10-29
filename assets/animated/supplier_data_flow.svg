@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="1200" height="420" font-family="system-ui, -apple-system, 'Segoe UI', Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">Animated: how supplier CO2 data becomes Scope 3 Category 1</title>
+  <desc id="d">A supplier data sheet travels from the purchasing request to a data quality rating. If the PACT data quality rating is 3.0 or better the supplier's own footprint is used; otherwise a secondary database factor is used and the supplier gets an improvement action. Both routes end in Category 1 emissions equal to volume times factor.</desc>
+  <style>
+    .h{font-size:15px;font-weight:700;fill:#0b0b0b}
+    .s{font-size:12px;fill:#52514e}
+    .n{font-size:11px;font-weight:800;fill:#ffffff}
+    .ln{fill:none;stroke:#898781;stroke-width:2.2;stroke-dasharray:8 5;animation:flow 1s linear infinite}
+    .lg{stroke:#1baf7a}.lo{stroke:#eb6834}
+    @keyframes flow{to{stroke-dashoffset:-26}}
+    @media (prefers-reduced-motion: reduce){.ln{animation:none}}
+  </style>
+  <rect width="1200" height="420" rx="16" fill="#fcfcfb"/>
+  <text x="30" y="40" font-size="22" font-weight="800" fill="#0b0b0b">From supplier survey to Scope 3 Category 1</text>
+  <text x="30" y="62" class="s">PACT Pathfinder data quality rating (DQR): average of 5 indicators, 1 = very good … 5 = very poor</text>
+
+  <!-- step boxes -->
+  <g><rect x="30" y="160" width="190" height="90" rx="12" fill="#ffffff" stroke="#c3c2b7"/>
+    <circle cx="52" cy="160" r="12" fill="#2a78d6"/><text x="52" y="164" class="n" text-anchor="middle">1</text>
+    <text x="48" y="194" class="h">Request</text><text x="48" y="214" class="s">Survey + PCF request</text><text x="48" y="231" class="s">sent by purchasing</text></g>
+  <g><rect x="270" y="160" width="215" height="90" rx="12" fill="#ffffff" stroke="#c3c2b7"/>
+    <circle cx="292" cy="160" r="12" fill="#2a78d6"/><text x="292" y="164" class="n" text-anchor="middle">2</text>
+    <text x="288" y="194" class="h">Rate data quality</text><text x="288" y="214" class="s">technology · geography · time</text><text x="288" y="231" class="s">completeness · reliability</text></g>
+  <g><path d="M590,145 L665,205 L590,265 L515,205 Z" fill="#fff6e0" stroke="#eda100" stroke-width="2"/>
+    <circle cx="590" cy="145" r="12" fill="#2a78d6"/><text x="590" y="149" class="n" text-anchor="middle">3</text>
+    <text x="590" y="201" class="h" text-anchor="middle" font-size="14">DQR ≤ 3.0?</text><text x="590" y="220" class="s" text-anchor="middle">+ PCF provided</text></g>
+  <g><rect x="720" y="80" width="230" height="90" rx="12" fill="#e8f7f1" stroke="#1baf7a" stroke-width="2"/>
+    <text x="738" y="112" class="h" fill="#0f7a54">✔ Use supplier PCF</text><text x="738" y="132" class="s">primary data, e.g. starch 0.62</text><text x="738" y="150" class="s">instead of default 0.85 kg/kg</text></g>
+  <g><rect x="720" y="240" width="230" height="90" rx="12" fill="#fdeee7" stroke="#eb6834" stroke-width="2"/>
+    <text x="738" y="272" class="h" fill="#b8461a">⚠ Use secondary factor</text><text x="738" y="292" class="s">database / proxy value</text><text x="738" y="310" class="s">+ action: improve data</text></g>
+  <g><rect x="990" y="160" width="180" height="90" rx="12" fill="#ffffff" stroke="#c3c2b7"/>
+    <circle cx="1012" cy="160" r="12" fill="#2a78d6"/><text x="1012" y="164" class="n" text-anchor="middle">4</text>
+    <text x="1008" y="194" class="h">Cat 1 emissions</text><text x="1008" y="214" class="s">volume × applied</text><text x="1008" y="231" class="s">factor (t CO₂e)</text></g>
+
+  <!-- connectors -->
+  <path class="ln" d="M220,205 H268"/>
+  <path class="ln" d="M485,205 H513"/>
+  <path class="ln lg" d="M640,185 C680,150 690,125 718,125"/>
+  <path class="ln lo" d="M640,225 C680,260 690,285 718,285"/>
+  <text x="664" y="140" font-size="12" font-weight="800" fill="#0f7a54">yes</text>
+  <text x="664" y="285" font-size="12" font-weight="800" fill="#b8461a">no</text>
+  <path class="ln lg" d="M950,125 C975,125 970,190 988,195"/>
+  <path class="ln lo" d="M950,285 C975,285 970,220 988,215"/>
+
+  <!-- travelling data sheets -->
+  <path id="ok" d="M125,205 H590 C680,150 690,125 835,125 C975,125 970,190 1080,205" fill="none"/>
+  <path id="ko" d="M125,205 H590 C680,260 690,285 835,285 C975,285 970,220 1080,205" fill="none"/>
+  <g><g transform="translate(-11,-14)"><rect width="22" height="28" rx="3" fill="#1baf7a"/><rect x="5" y="7" width="12" height="2.5" fill="#fff"/><rect x="5" y="13" width="12" height="2.5" fill="#fff"/><rect x="5" y="19" width="8" height="2.5" fill="#fff"/></g>
+    <animateMotion dur="6s" repeatCount="indefinite" keyPoints="0;0.40;0.40;1" keyTimes="0;0.4;0.5;1" calcMode="linear"><mpath href="#ok"/></animateMotion></g>
+  <g visibility="hidden"><set attributeName="visibility" to="visible" begin="3s"/><g transform="translate(-11,-14)"><rect width="22" height="28" rx="3" fill="#eb6834"/><rect x="5" y="7" width="12" height="2.5" fill="#fff"/><rect x="5" y="13" width="12" height="2.5" fill="#fff"/><rect x="5" y="19" width="8" height="2.5" fill="#fff"/></g>
+    <animateMotion dur="6s" begin="3s" repeatCount="indefinite" keyPoints="0;0.40;0.40;1" keyTimes="0;0.4;0.5;1" calcMode="linear"><mpath href="#ko"/></animateMotion></g>
+
+  <!-- result strip -->
+  <rect x="30" y="352" width="1140" height="50" rx="10" fill="#f0efec"/>
+  <text x="48" y="374" class="s"><tspan font-weight="700" fill="#0b0b0b">In this model:</tspan> 8 of 16 suppliers provide a footprint; 7 pass the DQR threshold (RCP Trader Benelux fails at 3.6).</text>
+  <text x="48" y="392" class="s"><tspan font-weight="700" fill="#0f7a54">52.5 %</tspan> of Cat 1 material emissions now rest on supplier-specific data (target ≥ 50 %).</text>
+</svg>

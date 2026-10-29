@@ -1,0 +1,42 @@
+code,source,activity,unit,ef,t_co2e,method,dq
+S1,Board mills – natural gas,675440909.0909,kWh,0.201,135763.6227,Metered,1
+S1,Folding carton plants – natural gas,8400000.0,kWh,0.201,1688.4,Metered,1
+S1,Gypsum board plants – natural gas (calcination + drying),301500000.0,kWh,0.201,60601.5,Metered,1
+S1,Mobile combustion – diesel,1500000.0,l,2.65,3975.0,Fuel records,1
+S2-LB,Electricity – location-based (all sites),232043181.8182,kWh,0.363,84231.675,Metered,1
+S2-MB,Electricity – market-based (non-certified share × residual mix),174032386.3636,kWh,0.62,107900.0795,Contracts,2
+S3-01,Cat 1 – Recovered paper,442000.0,t,0.0139,6150.0,Hybrid (supplier/avg),2
+S3-01,Cat 1 – Native starch,17200.0,t,0.62,10664.0,Hybrid (supplier/avg),2
+S3-01,Cat 1 – Calcium carbonate,11900.0,t,0.06,714.0,Hybrid (supplier/avg),2
+S3-01,Cat 1 – Process chemicals,4000.0,t,2.0,8000.0,Hybrid (supplier/avg),4
+S3-01,Cat 1 – Printing ink,1575.0,t,2.7,4252.5,Hybrid (supplier/avg),2
+S3-01,Cat 1 – Varnish,840.0,t,2.5,2100.0,Hybrid (supplier/avg),3
+S3-01,Cat 1 – Adhesive,525.0,t,1.5,787.5,Hybrid (supplier/avg),3
+S3-01,Cat 1 – Stretch film,855.0,t,2.6,2223.0,Hybrid (supplier/avg),3
+S3-01,Cat 1 – Natural gypsum,202500.0,t,0.005,1012.5,Hybrid (supplier/avg),2
+S3-01,Cat 1 – FGD gypsum,121500.0,t,0.002,243.0,Hybrid (supplier/avg),3
+S3-01,Cat 1 – Recycled gypsum,81000.0,t,0.007,567.0,Hybrid (supplier/avg),2
+S3-01,Cat 1 – Glass fibre,450.0,t,1.6,720.0,Hybrid (supplier/avg),3
+S3-01,Cat 1 – Gypsum additives,225.0,t,2.3,517.5,Hybrid (supplier/avg),4
+S3-01,Cat 1 – Indirect procurement (spend-based),60000000.0,EUR,0.25,15000.0,Spend-based,5
+S3-02,Cat 2 – Capital goods,35000000.0,EUR,0.35,12250.0,Spend-based,5
+S3-03,Cat 3 – Natural gas upstream,985340909.0909,kWh,0.03,29560.2273,Average-data,3
+S3-03,Cat 3 – Electricity upstream & T&D losses,232043181.8182,kWh,0.045,10441.9432,Average-data,3
+S3-03,Cat 3 – Diesel upstream,1500000.0,l,0.62,930.0,Average-data,3
+S3-04,Cat 4 – Inbound RCP transport,66389659.0909,tkm,0.095,6307.0176,Distance-based,3
+S3-04,Cat 4 – Inbound gypsum transport,32400000.0,tkm,0.095,3078.0,Distance-based,3
+S3-04,Cat 4 – Internal transfers board → plants (3rd-party hauliers),35229545.4545,tkm,0.095,3346.8068,Distance-based,3
+S3-04,Cat 4 – Outbound deliveries paid by company (FC + gypsum board),146250000.0,tkm,0.095,13893.75,Distance-based,4
+S3-05,Cat 5 – Water & wastewater (board mills),3178545.4545,m³,0.3,953.5636,Average-data,3
+S3-05,Cat 5 – Pulper rejects to incineration,31785454.5455,kg,0.6,19071.2727,Average-data,3
+S3-06,Cat 6 – Business travel,4200000.0,pkm,0.15,630.0,Distance-based,3
+S3-07,Cat 7 – Employee commuting,21168000.0,pkm,0.17,3598.56,Average-data,4
+S3-09,Cat 9 – External board collected by customers,52000000.0,tkm,0.095,4940.0,Distance-based,4
+S3-10,Cat 10 – Processing of sold board by external converters,260000.0,t,94.0104,24442.704,Proxy: own converting,4
+S3-08,Cat 8 – Upstream leased assets: not relevant (included in Scope 1/2),,,,0.0,Excluded – justified,
+S3-11,Cat 11 – Use of sold products: not relevant (no direct use-phase emissions),,,,0.0,Excluded – justified,
+S3-12,Cat 12 – End-of-life folding cartons & board,365000000.0,kg,0.03,10950.0,Average-data,4
+S3-12,Cat 12 – End-of-life gypsum board,382500000.0,kg,0.01,3825.0,Average-data,4
+S3-13,Cat 13 – Downstream leased assets: not relevant,,,,0.0,Excluded – justified,
+S3-14,Cat 14 – Franchises: not relevant,,,,0.0,Excluded – justified,
+S3-15,Cat 15 – Investments: not relevant (no material minority holdings),,,,0.0,Excluded – justified,

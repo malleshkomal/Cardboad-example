@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" width="1200" height="640" font-family="system-ui, -apple-system, 'Segoe UI', Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">Circular value chain with GHG Protocol Scope 1, 2 and 3 boundaries</title>
+  <desc id="d">Upstream suppliers (Scope 3 and Scope 2 energy) feed the company's board mill, folding carton and gypsum board plants (Scope 1 and 2). Products go to customers and end-of-life (Scope 3 downstream). Paper and gypsum return to the start through recycling loops.</desc>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#52514e"/></marker>
+    <marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#138a5f"/></marker>
+    <style>
+      .n{fill:#ffffff;stroke:#c3c2b7;stroke-width:1}
+      .h{font-size:14px;font-weight:700;fill:#0b0b0b}
+      .s{font-size:12px;fill:#52514e}
+      .tag{font-size:11px;font-weight:700;fill:#ffffff}
+      .band{font-size:15px;font-weight:700}
+      .e{stroke:#52514e;stroke-width:1.6;fill:none}
+      .loop{stroke:#138a5f;stroke-width:2.2;fill:none;stroke-dasharray:7 5}
+      .ll{font-size:12px;font-weight:700;fill:#138a5f}
+    </style>
+  </defs>
+  <rect width="1200" height="640" fill="#fcfcfb"/>
+
+  <!-- bands -->
+  <rect x="20" y="20" width="370" height="540" rx="14" fill="#e8f7f1"/>
+  <rect x="410" y="20" width="380" height="540" rx="14" fill="#e6f0fc"/>
+  <rect x="810" y="20" width="370" height="540" rx="14" fill="#e8f7f1"/>
+  <text x="40" y="50" class="band" fill="#0f7a54">UPSTREAM · Scope 3 (Cat 1–7)</text>
+  <text x="430" y="50" class="band" fill="#1c5cab">OWN OPERATIONS · Scope 1 + 2</text>
+  <text x="830" y="50" class="band" fill="#0f7a54">DOWNSTREAM · Scope 3 (Cat 9–12)</text>
+
+  <!-- upstream nodes -->
+  <g><rect class="n" x="40" y="72" width="330" height="70" rx="10"/>
+    <text x="56" y="98" class="h">Recovered paper collectors</text>
+    <text x="56" y="118" class="s">Collection, sorting, baling · trucks to mill</text>
+    <rect x="290" y="82" width="70" height="20" rx="10" fill="#1baf7a"/><text x="325" y="96" class="tag" text-anchor="middle">Cat 1 · 4</text></g>
+  <g><rect class="n" x="40" y="160" width="330" height="70" rx="10"/>
+    <text x="56" y="186" class="h">Starch, fillers, chemicals, inks</text>
+    <text x="56" y="206" class="s">Supplier PCFs via PACT · data quality (DQR)</text>
+    <rect x="290" y="170" width="70" height="20" rx="10" fill="#1baf7a"/><text x="325" y="184" class="tag" text-anchor="middle">Cat 1</text></g>
+  <g><rect class="n" x="40" y="248" width="330" height="70" rx="10"/>
+    <text x="56" y="274" class="h">Gypsum: natural · FGD · recycled</text>
+    <text x="56" y="294" class="s">Quarry, power-plant by-product, recycler</text>
+    <rect x="290" y="258" width="70" height="20" rx="10" fill="#1baf7a"/><text x="325" y="272" class="tag" text-anchor="middle">Cat 1 · 4</text></g>
+  <g><rect class="n" x="40" y="336" width="330" height="70" rx="10"/>
+    <text x="56" y="362" class="h">Energy suppliers</text>
+    <text x="56" y="382" class="s">Grid power → Scope 2 · fuel upstream → Cat 3</text>
+    <rect x="270" y="346" width="90" height="20" rx="10" fill="#eb6834"/><text x="315" y="360" class="tag" text-anchor="middle">S2 · Cat 3</text></g>
+  <g><rect class="n" x="40" y="424" width="330" height="70" rx="10"/>
+    <text x="56" y="450" class="h">Capex, services, travel</text>
+    <text x="56" y="470" class="s">+ commuting · spend- &amp; distance-based</text>
+    <rect x="270" y="434" width="90" height="20" rx="10" fill="#1baf7a"/><text x="315" y="448" class="tag" text-anchor="middle">Cat 2 · 6 · 7</text></g>
+
+  <!-- own operations -->
+  <g><rect class="n" x="430" y="80" width="340" height="110" rx="10" stroke="#2a78d6" stroke-width="2"/>
+    <text x="448" y="108" class="h">Recycled board mill</text>
+    <text x="448" y="130" class="s">Pulping · board machine · steam drying</text>
+    <text x="448" y="150" class="s">Natural gas boilers / CHP → Scope 1</text>
+    <text x="448" y="170" class="s">Grid electricity → Scope 2</text>
+    <rect x="690" y="90" width="70" height="20" rx="10" fill="#2a78d6"/><text x="725" y="104" class="tag" text-anchor="middle">S1 · S2</text></g>
+  <g><rect class="n" x="430" y="240" width="340" height="90" rx="10" stroke="#2a78d6" stroke-width="2"/>
+    <text x="448" y="268" class="h">Folding carton plants</text>
+    <text x="448" y="290" class="s">Printing · die-cutting · gluing</text>
+    <text x="448" y="310" class="s">~12 % trim returned to mill (closed loop)</text>
+    <rect x="690" y="250" width="70" height="20" rx="10" fill="#2a78d6"/><text x="725" y="264" class="tag" text-anchor="middle">S1 · S2</text></g>
+  <g><rect class="n" x="430" y="370" width="340" height="90" rx="10" stroke="#2a78d6" stroke-width="2"/>
+    <text x="448" y="398" class="h">Gypsum board plants</text>
+    <text x="448" y="420" class="s">Calcination + board drying (gas) → Scope 1</text>
+    <text x="448" y="440" class="s">Liner paper from own board mill</text>
+    <rect x="690" y="380" width="70" height="20" rx="10" fill="#2a78d6"/><text x="725" y="394" class="tag" text-anchor="middle">S1 · S2</text></g>
+  <g><rect class="n" x="430" y="484" width="340" height="56" rx="10"/>
+    <text x="448" y="508" class="h">Operational waste &amp; water</text>
+    <text x="448" y="527" class="s">Pulper rejects, wastewater treatment</text>
+    <rect x="690" y="494" width="70" height="20" rx="10" fill="#1baf7a"/><text x="725" y="508" class="tag" text-anchor="middle">Cat 5</text></g>
+
+  <!-- downstream -->
+  <g><rect class="n" x="830" y="80" width="330" height="70" rx="10"/>
+    <text x="846" y="106" class="h">External converters</text>
+    <text x="846" y="126" class="s">Process our board into packaging</text>
+    <rect x="1070" y="90" width="80" height="20" rx="10" fill="#1baf7a"/><text x="1110" y="104" class="tag" text-anchor="middle">Cat 9 · 10</text></g>
+  <g><rect class="n" x="830" y="250" width="330" height="70" rx="10"/>
+    <text x="846" y="276" class="h">Brand owners &amp; retail</text>
+    <text x="846" y="296" class="s">Folding cartons · outbound logistics</text>
+    <rect x="1070" y="260" width="80" height="20" rx="10" fill="#1baf7a"/><text x="1110" y="274" class="tag" text-anchor="middle">Cat 4 · 9</text></g>
+  <g><rect class="n" x="830" y="380" width="330" height="70" rx="10"/>
+    <text x="846" y="406" class="h">Construction sites</text>
+    <text x="846" y="426" class="s">Gypsum board in buildings (no use-phase)</text>
+    <rect x="1070" y="390" width="80" height="20" rx="10" fill="#1baf7a"/><text x="1110" y="404" class="tag" text-anchor="middle">Cat 4 · 11</text></g>
+  <g><rect class="n" x="830" y="476" width="330" height="64" rx="10"/>
+    <text x="846" y="502" class="h">End-of-life</text>
+    <text x="846" y="522" class="s">Recycling · incineration · landfill</text>
+    <rect x="1070" y="486" width="80" height="20" rx="10" fill="#1baf7a"/><text x="1110" y="500" class="tag" text-anchor="middle">Cat 12</text></g>
+
+  <!-- flows -->
+  <path class="e" d="M370,107 H400 V120 H428" marker-end="url(#a)"/>
+  <path class="e" d="M370,195 H400 V160 H428" marker-end="url(#a)"/>
+  <path class="e" d="M370,283 H400 V415 H428" marker-end="url(#a)"/>
+  <path class="e" d="M370,371 H392 V180 H428" marker-end="url(#a)"/>
+  <path class="e" d="M370,371 H392 V440 H428" marker-end="url(#a)"/>
+  <path class="e" d="M560,190 V238" marker-end="url(#a)"/>
+  <path class="e" d="M500,190 V210 H415 V350 H500 V368" marker-end="url(#a)"/>
+  <text x="508" y="364" class="s" font-size="11">liner board</text>
+  <path class="e" d="M770,175 H788 V512 H772" marker-end="url(#a)"/>
+  <path class="loop" d="M700,238 V205 H700 V192" marker-end="url(#g)"/>
+  <text x="708" y="222" class="ll">trim loop</text>
+  <path class="e" d="M770,120 H828" marker-end="url(#a)"/>
+  <text x="782" y="112" class="s" font-size="11">board</text>
+  <path class="e" d="M770,285 H828" marker-end="url(#a)"/>
+  <path class="e" d="M770,415 H828" marker-end="url(#a)"/>
+  <path class="e" d="M1160,115 H1170 V508 H1162" marker-end="url(#a)"/>
+  <path class="e" d="M995,320 V338 H1150 V474" marker-end="url(#a)"/>
+  <path class="e" d="M995,450 V474" marker-end="url(#a)"/>
+
+  <!-- circular loop -->
+  <path class="loop" d="M995,540 V600 H30 V107 H38" marker-end="url(#g)"/>
+  <path class="loop" d="M30,283 H38" marker-end="url(#g)"/>
+  <text x="600" y="622" class="ll" text-anchor="middle">♻ Circular economy loop: used paper &amp; board → recovered paper · gypsum waste → recycled gypsum</text>
+</svg>

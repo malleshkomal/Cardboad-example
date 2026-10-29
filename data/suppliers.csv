@@ -1,0 +1,17 @@
+id,name,country,material,volume_t,spend_keur,supplier_pcf,dqr,data_basis,t_co2e,ecovadis,score,rating,risk_index,sbti,action
+S01,Recycling Partner North,DE,Recovered paper,160000.0,19200.0,0.012,2.0,Supplier-specific,1920.0,68,75.6,A – Strategic partner,1.2344,Y,"Joint decarb. roadmap, PCF exchange"
+S02,Recycling Partner South,DE,Recovered paper,135000.0,16200.0,,,Secondary (no PCF),2025.0,,42.25,C – Improvement plan,3.0814,N,Corrective action plan within 6 months
+S03,Municipal Paper Collection Pool,DE,Recovered paper,92000.0,10100.0,,,Secondary (no PCF),1380.0,,33.25,D – Escalate,2.4272,N,Escalate to category mgmt; audit
+S04,RCP Trader Benelux,NL,Recovered paper,55000.0,6900.0,0.02,3.6,Secondary (DQR fail),825.0,45,37.0,D – Escalate,1.3695,N,Escalate to category mgmt; audit
+S05,Starch Mill Central,DE,Native starch,17200.0,8600.0,0.62,1.8,Supplier-specific,10664.0,74,79.7,A – Strategic partner,5.7042,Y,"Joint decarb. roadmap, PCF exchange"
+S06,Mineral Fillers Alpine,AT,Calcium carbonate,11900.0,1500.0,0.06,2.4,Supplier-specific,714.0,61,60.8,B – Develop,0.7375,N,Request EcoVadis + SBTi commitment
+S07,ProcessChem Solutions,DE,Process chemicals,4000.0,9200.0,,,Secondary (no PCF),8000.0,52,42.75,C – Improvement plan,12.0682,N,Corrective action plan within 6 months
+S08,PrintInk Europe,DE,Printing ink,1575.0,7900.0,2.7,1.8,Supplier-specific,4252.5,70,76.7,A – Strategic partner,2.6108,Y,"Joint decarb. roadmap, PCF exchange"
+S09,CoatTech Varnish,IT,Varnish,840.0,3400.0,,,Secondary (no PCF),2100.0,,40.05,C – Improvement plan,3.3173,N,Corrective action plan within 6 months
+S10,BondWell Adhesives,DE,Adhesive,525.0,1600.0,1.5,2.4,Supplier-specific,787.5,58,54.35,C – Improvement plan,0.9473,N,Corrective action plan within 6 months
+S11,FilmPack Poly,PL,Stretch film,855.0,1700.0,,,Secondary (no PCF),2223.0,,31.8,D – Escalate,3.9949,N,Escalate to category mgmt; audit
+S12,Gypsum Quarry Harz,DE,Natural gypsum,202500.0,4100.0,0.005,1.6,Supplier-specific,1012.5,63,61.2,B – Develop,1.0352,N,Request EcoVadis + SBTi commitment
+S13,Power Plant By-Products,DE,FGD gypsum,121500.0,1800.0,,,Secondary (no PCF),243.0,,39.25,D – Escalate,0.389,N,Escalate to category mgmt; audit
+S14,Gypsum Recycling West,DE,Recycled gypsum,81000.0,2400.0,0.007,1.8,Supplier-specific,567.0,66,69.75,B – Develop,0.4519,Y,Request EcoVadis + SBTi commitment
+S15,GlassFibre Components,CZ,Glass fibre,450.0,900.0,,,Secondary (no PCF),720.0,,40.25,C – Improvement plan,1.1336,N,Corrective action plan within 6 months
+S16,BuildAdd Chemicals,DE,Gypsum additives,225.0,1100.0,,,Secondary (no PCF),517.5,,34.5,D – Escalate,0.8932,N,Escalate to category mgmt; audit

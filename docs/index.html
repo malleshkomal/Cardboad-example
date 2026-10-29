@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Circular Carbon Dashboard</title>
+<meta name="description" content="LCA / PCF, Scope 1-2-3 carbon accounting and sustainable procurement dashboard for a circular paper, carton and gypsum board business (fictional data).">
+<style>
+:root{
+  color-scheme:light;
+  --page:#f9f9f7; --surface:#fcfcfb; --card:#ffffff; --ink:#0b0b0b; --ink2:#52514e; --muted:#898781;
+  --grid:#e1e0d9; --axis:#c3c2b7; --ring:rgba(11,11,11,.10); --hover:rgba(11,11,11,.04);
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100; --neutral:#c3c2b7;
+  --r1:#104281; --r2:#256abf; --r3:#5598e7; --r4:#86b6ef;
+  --good:#0ca30c; --warn:#fab219; --crit:#d03b3b; --goodtext:#006300; --crittext:#b42e2e;
+  --accent:#1c5cab; --hero1:#0f3d2e; --hero2:#1f4e3d;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --page:#0d0d0d; --surface:#1a1a19; --card:#1a1a19; --ink:#f0efec; --ink2:#c3c2b7; --muted:#898781;
+    --grid:#2c2c2a; --axis:#383835; --ring:rgba(255,255,255,.10); --hover:rgba(255,255,255,.05);
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --neutral:#5b5a55;
+    --r1:#cde2fb; --r2:#86b6ef; --r3:#3987e5; --r4:#1c5cab;
+    --goodtext:#0ca30c; --crittext:#e66767; --accent:#86b6ef; --hero1:#0b2a20; --hero2:#143a2d;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --page:#0d0d0d; --surface:#1a1a19; --card:#1a1a19; --ink:#f0efec; --ink2:#c3c2b7; --muted:#898781;
+  --grid:#2c2c2a; --axis:#383835; --ring:rgba(255,255,255,.10); --hover:rgba(255,255,255,.05);
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --neutral:#5b5a55;
+  --r1:#cde2fb; --r2:#86b6ef; --r3:#3987e5; --r4:#1c5cab;
+  --goodtext:#0ca30c; --crittext:#e66767; --accent:#86b6ef; --hero1:#0b2a20; --hero2:#143a2d;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--page);color:var(--ink);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--accent)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+header.top{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--page) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--ring)}
+header.top .wrap{display:flex;align-items:center;gap:16px;height:56px}
+.brand{font-weight:700;white-space:nowrap}
+nav{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;flex:1}
+nav a{color:var(--ink2);text-decoration:none;font-size:13px;padding:6px 10px;border-radius:8px;white-space:nowrap}
+nav a:hover{background:var(--hover);color:var(--ink)}
+.toggle{border:1px solid var(--ring);background:var(--card);color:var(--ink);border-radius:8px;padding:6px 10px;cursor:pointer;font-size:13px}
+.hero{background:linear-gradient(135deg,var(--hero1),var(--hero2));color:#f0efec;padding:44px 0 36px}
+.hero h1{margin:0 0 8px;font-size:clamp(24px,4vw,36px);line-height:1.15}
+.hero p{margin:0;max-width:780px;color:#c9dcd3}
+.pill{display:inline-block;font-size:12px;border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:3px 10px;margin:0 6px 14px 0;color:#dfeee7}
+section{padding:36px 0 8px}
+h2{font-size:22px;margin:0 0 4px}
+.lede{color:var(--ink2);margin:0 0 18px;max-width:820px}
+.grid{display:grid;gap:16px}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:900px){.g4{grid-template-columns:repeat(2,minmax(0,1fr))}.g3,.g2{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--ring);border-radius:14px;padding:18px}
+.tile .lbl{font-size:13px;color:var(--ink2)}
+.tile .val{font-size:30px;font-weight:700;margin:4px 0 2px;letter-spacing:-.01em}
+.tile .sub{font-size:12px;color:var(--muted)}
+.tile .bar{height:4px;border-radius:2px;margin-top:10px}
+.card h3{margin:0 0 2px;font-size:16px}
+.card .note{font-size:12.5px;color:var(--ink2);margin:0 0 12px}
+.scope{border-top:4px solid}
+.scope h3{display:flex;align-items:center;gap:8px}
+.scope ul{margin:8px 0 0;padding-left:18px;color:var(--ink2);font-size:13.5px}
+.scope .big{font-size:22px;font-weight:700;margin-top:8px}
+.badge{display:inline-block;font-size:11px;font-weight:700;color:#fff;border-radius:999px;padding:2px 8px}
+.diagram{background:#fcfcfb;border-radius:14px;border:1px solid var(--ring);overflow:auto}
+.diagram img{display:block;width:100%;min-width:760px;height:auto}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:12.5px;color:var(--ink2);margin:0 0 10px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.tabs button{border:1px solid var(--ring);background:var(--card);color:var(--ink2);padding:6px 12px;border-radius:8px;cursor:pointer;font-size:13px}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:var(--page);border-color:var(--ink)}
+svg text{font-family:inherit}
+.chart{width:100%;display:block;overflow:visible}
+.tip{position:fixed;pointer-events:none;z-index:50;background:var(--card);color:var(--ink);border:1px solid var(--ring);border-radius:10px;padding:8px 10px;font-size:12.5px;box-shadow:0 6px 24px rgba(0,0,0,.14);opacity:0;transition:opacity .08s;max-width:280px}
+.tip b{display:block;margin-bottom:2px}
+.tip .k{color:var(--ink2)}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--grid);vertical-align:top}
+th{font-size:12px;color:var(--ink2);font-weight:600;text-transform:uppercase;letter-spacing:.03em}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+tr.grp td{background:var(--hover);font-weight:700;font-size:12.5px;color:var(--ink2)}
+.status{display:inline-flex;align-items:center;gap:6px;font-weight:600;font-size:12.5px;white-space:nowrap}
+.status .dot{width:16px;height:16px;border-radius:50%;display:inline-grid;place-items:center;color:#fff;font-size:10px;line-height:1}
+.ok{color:var(--goodtext)} .ok .dot{background:var(--good)}
+.gap{color:var(--crittext)} .gap .dot{background:var(--crit)}
+.mon{color:var(--ink2)} .mon .dot{background:var(--neutral)}
+.tablewrap{overflow-x:auto}
+details{margin-top:10px} summary{cursor:pointer;color:var(--ink2);font-size:13px}
+.flow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;counter-reset:st}
+.flow div{background:var(--card);border:1px solid var(--ring);border-radius:12px;padding:12px;font-size:13px;color:var(--ink2);position:relative}
+.flow div b{display:block;color:var(--ink);font-size:14px;margin-bottom:4px}
+.flow div::before{counter-increment:st;content:counter(st);position:absolute;top:-10px;left:12px;background:var(--accent);color:var(--page);font-weight:700;font-size:11px;border-radius:999px;width:20px;height:20px;display:grid;place-items:center}
+@media (max-width:900px){.flow{grid-template-columns:1fr 1fr}}
+footer{padding:36px 0 48px;color:var(--muted);font-size:12.5px}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <div class="brand">♻ Circular Carbon</div>
+  <nav aria-label="Sections">
+    <a href="#overview">Overview</a><a href="#scopes">Scopes 1·2·3</a><a href="#inventory">Inventory</a>
+    <a href="#pcf">Product footprints</a><a href="#suppliers">Suppliers</a><a href="#decarb">Decarbonisation</a><a href="#kpis">KPIs</a>
+  </nav>
+  <button class="toggle" id="theme" type="button" aria-label="Toggle light/dark">◐ Theme</button>
+</div></header>
+
+<div class="hero"><div class="wrap">
+  <span class="pill">ISO 14067 · ISO 14040/44</span><span class="pill">GHG Protocol Scope 1-2-3</span><span class="pill">PACT data quality</span><span class="pill">EcoVadis themes</span>
+  <h1>Carbon accounting &amp; sustainable procurement<br>for a circular paper value chain</h1>
+  <p>Recovered paper → recycled cartonboard → folding cartons &amp; gypsum board. Product carbon footprints, corporate GHG inventory, supplier data quality, ESG scorecards and decarbonisation levers in one model. <b>Reporting year <span id="yr"></span> · all company and supplier data fictional.</b></p>
+</div></div>
+
+<main class="wrap">
+
+<section id="overview">
+  <h2>Overview</h2>
+  <p class="lede">Headline figures from the Excel model. Every number is calculated from activity data × emission factors.</p>
+  <div class="grid g4" id="tiles"></div>
+</section>
+
+<section id="scopes">
+  <h2>Scope 1, 2 and 3 explained</h2>
+  <p class="lede">The GHG Protocol sorts a company's emissions by <b>who controls the source</b>. Scope 1 and 2 are the company's own operations; Scope 3 is everything else in the value chain, upstream and downstream.</p>
+  <div class="grid g3" id="scopecards"></div>
+  <div style="height:16px"></div>
+  <div class="diagram"><img src="value_chain_scopes.svg" alt="Value chain diagram: upstream suppliers (Scope 3) feed the board mill, folding carton and gypsum board plants (Scope 1 and 2), whose products flow to customers and end-of-life (Scope 3), with recycling loops back to the start."></div>
+  <div style="height:16px"></div>
+  <h3 style="margin:8px 0 12px">How supplier data flows into Scope 3</h3>
+  <div class="flow">
+    <div><b>Request</b>Supplier survey + PCF request (PACT format) sent by purchasing.</div>
+    <div><b>Rate quality</b>5 PACT indicators → data quality rating (DQR 1-5).</div>
+    <div><b>Accept / fall back</b>DQR ≤ 3.0 → supplier PCF used, otherwise secondary database factor.</div>
+    <div><b>Calculate</b>Volume × applied factor → Cat 1 emissions per supplier.</div>
+    <div><b>Engage</b>Scorecard rating A-D sets the action: roadmap, improvement plan or escalation.</div>
+  </div>
+</section>
+
+<section id="inventory">
+  <h2>Corporate GHG inventory</h2>
+  <p class="lede">Scope 2 is shown market-based (contracts with renewable certificates); the location-based figure uses the grid average.</p>
+  <div class="grid g2">
+    <div class="card"><h3>Scope split</h3><p class="note">t CO₂e · hover for details</p><div class="legend" id="splitLegend"></div><div id="split"></div>
+      <div style="height:14px"></div><h3>Scope 2: location- vs market-based</h3><p class="note">Same electricity, two accounting methods (t CO₂e)</p><div id="s2"></div></div>
+    <div class="card"><h3>Scope 3 by category</h3><p class="note">t CO₂e · categories 8, 11, 13-15 not relevant</p><div id="cats"></div></div>
+  </div>
+  <details class="card" style="margin-top:16px"><summary>Show full inventory table (<span id="invn"></span> lines)</summary><div class="tablewrap"><table id="invtable"></table></div></details>
+</section>
+
+<section id="pcf">
+  <h2>Product carbon footprints</h2>
+  <p class="lede">Cradle-to-gate (A1-A3). Recovered paper enters burden-free (cut-off approach); the board mill's footprint feeds the folding carton and the gypsum board liner.</p>
+  <div class="grid g3" id="pcftiles"></div>
+  <div style="height:16px"></div>
+  <div class="card">
+    <div class="tabs" id="pcftabs" role="group" aria-label="Product"></div>
+    <div class="legend"><span><i style="background:var(--s1)"></i>A1 Raw materials</span><span><i style="background:var(--s2)"></i>A2 Transport</span><span><i style="background:var(--s3)"></i>A3 Manufacturing</span></div>
+    <div id="pcfchart"></div>
+  </div>
+</section>
+
+<section id="suppliers">
+  <h2>Supplier data &amp; ESG scorecard</h2>
+  <p class="lede">Category 1 emissions are only as good as the supplier data behind them. The scorecard combines EcoVadis themes with climate maturity.</p>
+  <div class="grid g2">
+    <div class="card"><h3>Cat 1 emissions by data basis</h3><p class="note">Target: ≥ 50 % from accepted supplier-specific PCFs</p><div class="legend" id="basisLegend"></div><div id="basis"></div>
+      <div style="height:16px"></div><h3>Emissions by supplier</h3><p class="note">t CO₂e, coloured by data basis</p><div id="supem"></div></div>
+    <div class="card"><h3>ESG score by supplier</h3><p class="note">Weighted 0-100 · thresholds A ≥ 70, B ≥ 55, C ≥ 40</p><div class="legend" id="ratingLegend"></div><div id="score"></div></div>
+  </div>
+  <details class="card" style="margin-top:16px"><summary>Show supplier register &amp; actions</summary><div class="tablewrap"><table id="suptable"></table></div></details>
+</section>
+
+<section id="decarb">
+  <h2>Decarbonisation levers</h2>
+  <p class="lede">Marginal abatement cost curve: each bar's <b>width</b> is the annual reduction, its <b>height</b> the cost per tonne. Bars below zero save money. Dashed line = reference CO₂ price (100 EUR/t).</p>
+  <div class="card"><div class="legend"><span><i style="background:var(--s1)"></i>Scope 1</span><span><i style="background:var(--s2)"></i>Scope 2</span><span><i style="background:var(--s3)"></i>Scope 3</span><span><i style="background:var(--s4)"></i>Mixed</span></div><div id="macc"></div></div>
+  <details class="card" style="margin-top:16px"><summary>Show lever table</summary><div class="tablewrap"><table id="levtable"></table></div></details>
+</section>
+
+<section id="kpis">
+  <h2>KPI scorecard</h2>
+  <p class="lede">Sustainable procurement and climate KPIs against targets.</p>
+  <div class="card tablewrap"><table id="kpitable"></table></div>
+</section>
+
+<footer>Fictional company and supplier data for demonstration. Emission factors are rounded indicative values (UBA, DESNZ, ecoinvent-type) and must be replaced with verified data before external use. Source model: <code>model/LCA_CO2_Supplier_Toolkit.xlsx</code>.</footer>
+</main>
+
+<div class="tip" id="tip" role="status"></div>
+
+<script>
+const D = {"year": "2025", "summary": {"Scope 1": 202028.5227, "Scope 2 – location-based": 84231.675, "Scope 2 – market-based": 107900.0795, "Scope 3": 201169.8453, "TOTAL Scope 1 + 2 (market-based) + 3": 511098.4475}, "inventory": [{"code": "S1", "source": "Board mills – natural gas", "activity": 675440909.0909, "unit": "kWh", "ef": 0.201, "t_co2e": 135763.6227, "method": "Metered", "dq": 1}, {"code": "S1", "source": "Folding carton plants – natural gas", "activity": 8400000.0, "unit": "kWh", "ef": 0.201, "t_co2e": 1688.4, "method": "Metered", "dq": 1}, {"code": "S1", "source": "Gypsum board plants – natural gas (calcination + drying)", "activity": 301500000.0, "unit": "kWh", "ef": 0.201, "t_co2e": 60601.5, "method": "Metered", "dq": 1}, {"code": "S1", "source": "Mobile combustion – diesel", "activity": 1500000.0, "unit": "l", "ef": 2.65, "t_co2e": 3975.0, "method": "Fuel records", "dq": 1}, {"code": "S2-LB", "source": "Electricity – location-based (all sites)", "activity": 232043181.8182, "unit": "kWh", "ef": 0.363, "t_co2e": 84231.675, "method": "Metered", "dq": 1}, {"code": "S2-MB", "source": "Electricity – market-based (non-certified share × residual mix)", "activity": 174032386.3636, "unit": "kWh", "ef": 0.62, "t_co2e": 107900.0795, "method": "Contracts", "dq": 2}, {"code": "S3-01", "source": "Cat 1 – Recovered paper", "activity": 442000.0, "unit": "t", "ef": 0.0139, "t_co2e": 6150.0, "method": "Hybrid (supplier/avg)", "dq": 2}, {"code": "S3-01", "source": "Cat 1 – Native starch", "activity": 17200.0, "unit": "t", "ef": 0.62, "t_co2e": 10664.0, "method": "Hybrid (supplier/avg)", "dq": 2}, {"code": "S3-01", "source": "Cat 1 – Calcium carbonate", "activity": 11900.0, "unit": "t", "ef": 0.06, "t_co2e": 714.0, "method": "Hybrid (supplier/avg)", "dq": 2}, {"code": "S3-01", "source": "Cat 1 – Process chemicals", "activity": 4000.0, "unit": "t", "ef": 2.0, "t_co2e": 8000.0, "method": "Hybrid (supplier/avg)", "dq": 4}, {"code": "S3-01", "source": "Cat 1 – Printing ink", "activity": 1575.0, "unit": "t", "ef": 2.7, "t_co2e": 4252.5, "method": "Hybrid (supplier/avg)", "dq": 2}, {"code": "S3-01", "source": "Cat 1 – Varnish", "activity": 840.0, "unit": "t", "ef": 2.5, "t_co2e": 2100.0, "method": "Hybrid (supplier/avg)", "dq": 3}, {"code": "S3-01", "source": "Cat 1 – Adhesive", "activity": 525.0, "unit": "t", "ef": 1.5, "t_co2e": 787.5, "method": "Hybrid (supplier/avg)", "dq": 3}, {"code": "S3-01", "source": "Cat 1 – Stretch film", "activity": 855.0, "unit": "t", "ef": 2.6, "t_co2e": 2223.0, "method": "Hybrid (supplier/avg)", "dq": 3}, {"code": "S3-01", "source": "Cat 1 – Natural gypsum", "activity": 202500.0, "unit": "t", "ef": 0.005, "t_co2e": 1012.5, "method": "Hybrid (supplier/avg)", "dq": 2}, {"code": "S3-01", "source": "Cat 1 – FGD gypsum", "activity": 121500.0, "unit": "t", "ef": 0.002, "t_co2e": 243.0, "method": "Hybrid (supplier/avg)", "dq": 3}, {"code": "S3-01", "source": "Cat 1 – Recycled gypsum", "activity": 81000.0, "unit": "t", "ef": 0.007, "t_co2e": 567.0, "method": "Hybrid (supplier/avg)", "dq": 2}, {"code": "S3-01", "source": "Cat 1 – Glass fibre", "activity": 450.0, "unit": "t", "ef": 1.6, "t_co2e": 720.0, "method": "Hybrid (supplier/avg)", "dq": 3}, {"code": "S3-01", "source": "Cat 1 – Gypsum additives", "activity": 225.0, "unit": "t", "ef": 2.3, "t_co2e": 517.5, "method": "Hybrid (supplier/avg)", "dq": 4}, {"code": "S3-01", "source": "Cat 1 – Indirect procurement (spend-based)", "activity": 60000000.0, "unit": "EUR", "ef": 0.25, "t_co2e": 15000.0, "method": "Spend-based", "dq": 5}, {"code": "S3-02", "source": "Cat 2 – Capital goods", "activity": 35000000.0, "unit": "EUR", "ef": 0.35, "t_co2e": 12250.0, "method": "Spend-based", "dq": 5}, {"code": "S3-03", "source": "Cat 3 – Natural gas upstream", "activity": 985340909.0909, "unit": "kWh", "ef": 0.03, "t_co2e": 29560.2273, "method": "Average-data", "dq": 3}, {"code": "S3-03", "source": "Cat 3 – Electricity upstream & T&D losses", "activity": 232043181.8182, "unit": "kWh", "ef": 0.045, "t_co2e": 10441.9432, "method": "Average-data", "dq": 3}, {"code": "S3-03", "source": "Cat 3 – Diesel upstream", "activity": 1500000.0, "unit": "l", "ef": 0.62, "t_co2e": 930.0, "method": "Average-data", "dq": 3}, {"code": "S3-04", "source": "Cat 4 – Inbound RCP transport", "activity": 66389659.0909, "unit": "tkm", "ef": 0.095, "t_co2e": 6307.0176, "method": "Distance-based", "dq": 3}, {"code": "S3-04", "source": "Cat 4 – Inbound gypsum transport", "activity": 32400000.0, "unit": "tkm", "ef": 0.095, "t_co2e": 3078.0, "method": "Distance-based", "dq": 3}, {"code": "S3-04", "source": "Cat 4 – Internal transfers board → plants (3rd-party hauliers)", "activity": 35229545.4545, "unit": "tkm", "ef": 0.095, "t_co2e": 3346.8068, "method": "Distance-based", "dq": 3}, {"code": "S3-04", "source": "Cat 4 – Outbound deliveries paid by company (FC + gypsum board)", "activity": 146250000.0, "unit": "tkm", "ef": 0.095, "t_co2e": 13893.75, "method": "Distance-based", "dq": 4}, {"code": "S3-05", "source": "Cat 5 – Water & wastewater (board mills)", "activity": 3178545.4545, "unit": "m³", "ef": 0.3, "t_co2e": 953.5636, "method": "Average-data", "dq": 3}, {"code": "S3-05", "source": "Cat 5 – Pulper rejects to incineration", "activity": 31785454.5455, "unit": "kg", "ef": 0.6, "t_co2e": 19071.2727, "method": "Average-data", "dq": 3}, {"code": "S3-06", "source": "Cat 6 – Business travel", "activity": 4200000.0, "unit": "pkm", "ef": 0.15, "t_co2e": 630.0, "method": "Distance-based", "dq": 3}, {"code": "S3-07", "source": "Cat 7 – Employee commuting", "activity": 21168000.0, "unit": "pkm", "ef": 0.17, "t_co2e": 3598.56, "method": "Average-data", "dq": 4}, {"code": "S3-09", "source": "Cat 9 – External board collected by customers", "activity": 52000000.0, "unit": "tkm", "ef": 0.095, "t_co2e": 4940.0, "method": "Distance-based", "dq": 4}, {"code": "S3-10", "source": "Cat 10 – Processing of sold board by external converters", "activity": 260000.0, "unit": "t", "ef": 94.0104, "t_co2e": 24442.704, "method": "Proxy: own converting", "dq": 4}, {"code": "S3-08", "source": "Cat 8 – Upstream leased assets: not relevant (included in Scope 1/2)", "activity": null, "unit": null, "ef": null, "t_co2e": 0.0, "method": "Excluded – justified", "dq": null}, {"code": "S3-11", "source": "Cat 11 – Use of sold products: not relevant (no direct use-phase emissions)", "activity": null, "unit": null, "ef": null, "t_co2e": 0.0, "method": "Excluded – justified", "dq": null}, {"code": "S3-12", "source": "Cat 12 – End-of-life folding cartons & board", "activity": 365000000.0, "unit": "kg", "ef": 0.03, "t_co2e": 10950.0, "method": "Average-data", "dq": 4}, {"code": "S3-12", "source": "Cat 12 – End-of-life gypsum board", "activity": 382500000.0, "unit": "kg", "ef": 0.01, "t_co2e": 3825.0, "method": "Average-data", "dq": 4}, {"code": "S3-13", "source": "Cat 13 – Downstream leased assets: not relevant", "activity": null, "unit": null, "ef": null, "t_co2e": 0.0, "method": "Excluded – justified", "dq": null}, {"code": "S3-14", "source": "Cat 14 – Franchises: not relevant", "activity": null, "unit": null, "ef": null, "t_co2e": 0.0, "method": "Excluded – justified", "dq": null}, {"code": "S3-15", "source": "Cat 15 – Investments: not relevant (no material minority holdings)", "activity": null, "unit": null, "ef": null, "t_co2e": 0.0, "method": "Excluded – justified", "dq": null}], "scope3_categories": [{"code": "S3-01", "category": "Cat 1 – Purchased goods & services", "t_co2e": 52951.0, "share": 0.2632}, {"code": "S3-02", "category": "Cat 2 – Capital goods", "t_co2e": 12250.0, "share": 0.0609}, {"code": "S3-03", "category": "Cat 3 – Fuel- & energy-related", "t_co2e": 40932.1705, "share": 0.2035}, {"code": "S3-04", "category": "Cat 4 – Upstream transport", "t_co2e": 26625.5744, "share": 0.1324}, {"code": "S3-05", "category": "Cat 5 – Waste in operations", "t_co2e": 20024.8364, "share": 0.0995}, {"code": "S3-06", "category": "Cat 6 – Business travel", "t_co2e": 630.0, "share": 0.0031}, {"code": "S3-07", "category": "Cat 7 – Employee commuting", "t_co2e": 3598.56, "share": 0.0179}, {"code": "S3-08", "category": "Cat 8 – Upstream leased assets", "t_co2e": 0.0, "share": 0.0}, {"code": "S3-09", "category": "Cat 9 – Downstream transport", "t_co2e": 4940.0, "share": 0.0246}, {"code": "S3-10", "category": "Cat 10 – Processing of sold products", "t_co2e": 24442.704, "share": 0.1215}, {"code": "S3-11", "category": "Cat 11 – Use of sold products", "t_co2e": 0.0, "share": 0.0}, {"code": "S3-12", "category": "Cat 12 – End-of-life treatment", "t_co2e": 14775.0, "share": 0.0734}, {"code": "S3-13", "category": "Cat 13 – Downstream leased assets", "t_co2e": 0.0, "share": 0.0}, {"code": "S3-14", "category": "Cat 14 – Franchises", "t_co2e": 0.0, "share": 0.0}, {"code": "S3-15", "category": "Cat 15 – Investments", "t_co2e": 0.0, "share": 0.0}], "pcf": {"board": {"unit": "kg CO2e / t", "total": 716.7375, "items": [{"stage": "A1 Raw materials", "input": "Recovered paper (collection & sorting)", "kg_co2e": 17.25, "scope": "Scope 3 Cat 1"}, {"stage": "A1 Raw materials", "input": "Native starch (surface & wet-end)", "kg_co2e": 34.0, "scope": "Scope 3 Cat 1"}, {"stage": "A1 Raw materials", "input": "Calcium carbonate filler", "kg_co2e": 2.4, "scope": "Scope 3 Cat 1"}, {"stage": "A1 Raw materials", "input": "Process chemicals", "kg_co2e": 20.0, "scope": "Scope 3 Cat 1"}, {"stage": "A2 Transport", "input": "Inbound transport recovered paper", "kg_co2e": 16.3875, "scope": "Scope 3 Cat 4"}, {"stage": "A3 Manufacturing", "input": "Natural gas – steam & drying (CHP/boiler)", "kg_co2e": 341.7, "scope": "Scope 1"}, {"stage": "A3 Manufacturing", "input": "Natural gas – upstream", "kg_co2e": 51.0, "scope": "Scope 3 Cat 3"}, {"stage": "A3 Manufacturing", "input": "Grid electricity (location-based)", "kg_co2e": 163.35, "scope": "Scope 2"}, {"stage": "A3 Manufacturing", "input": "Electricity – upstream & losses", "kg_co2e": 20.25, "scope": "Scope 3 Cat 3"}, {"stage": "A3 Manufacturing", "input": "Water & wastewater treatment", "kg_co2e": 2.4, "scope": "Scope 3 Cat 5"}, {"stage": "A3 Manufacturing", "input": "Pulper rejects to incineration", "kg_co2e": 48.0, "scope": "Scope 3 Cat 5"}]}, "carton": {"unit": "kg CO2e / t", "total": 1056.5885, "items": [{"stage": "A1 Raw materials", "input": "Recycled cartonboard (own mill)", "kg_co2e": 814.4744, "scope": "Scope 1/2/3 (internal)"}, {"stage": "A1 Raw materials", "input": "Offset printing inks", "kg_co2e": 48.0, "scope": "Scope 3 Cat 1"}, {"stage": "A1 Raw materials", "input": "Overprint varnish", "kg_co2e": 20.0, "scope": "Scope 3 Cat 1"}, {"stage": "A1 Raw materials", "input": "Dispersion adhesive (gluing)", "kg_co2e": 9.0, "scope": "Scope 3 Cat 1"}, {"stage": "A1 Raw materials", "input": "Packaging – LDPE stretch film", "kg_co2e": 15.6, "scope": "Scope 3 Cat 1"}, {"stage": "A2 Transport", "input": "Board transport mill → plant", "kg_co2e": 26.9886, "scope": "Scope 3 Cat 4"}, {"stage": "A3 Manufacturing", "input": "Natural gas – heating & ink drying", "kg_co2e": 16.08, "scope": "Scope 1"}, {"stage": "A3 Manufacturing", "input": "Natural gas – upstream", "kg_co2e": 2.4, "scope": "Scope 3 Cat 3"}, {"stage": "A3 Manufacturing", "input": "Electricity – printing, die-cutting, gluing", "kg_co2e": 90.75, "scope": "Scope 2"}, {"stage": "A3 Manufacturing", "input": "Electricity – upstream & losses", "kg_co2e": 11.25, "scope": "Scope 3 Cat 3"}, {"stage": "A3 Manufacturing", "input": "Trim waste → own mill as RCP (closed loop)", "kg_co2e": 2.0455, "scope": "Scope 3 Cat 1"}]}, "gypsum": {"unit": "kg CO2e / 1,000 m2", "total": 2262.795, "items": [{"stage": "A1 Raw materials", "input": "Natural gypsum", "kg_co2e": 18.0, "scope": "Scope 3 Cat 1"}, {"stage": "A1 Raw materials", "input": "FGD gypsum", "kg_co2e": 5.4, "scope": "Scope 3 Cat 1"}, {"stage": "A1 Raw materials", "input": "Recycled gypsum", "kg_co2e": 14.4, "scope": "Scope 3 Cat 1"}, {"stage": "A1 Raw materials", "input": "Liner board (own recycled mill)", "kg_co2e": 286.695, "scope": "Scope 1/2/3 (internal)"}, {"stage": "A1 Raw materials", "input": "Starch (core bonding)", "kg_co2e": 25.5, "scope": "Scope 3 Cat 1"}, {"stage": "A1 Raw materials", "input": "Glass fibre", "kg_co2e": 16.0, "scope": "Scope 3 Cat 1"}, {"stage": "A1 Raw materials", "input": "Additives & foaming agent", "kg_co2e": 11.5, "scope": "Scope 3 Cat 1"}, {"stage": "A1 Raw materials", "input": "Packaging – LDPE film", "kg_co2e": 13.0, "scope": "Scope 3 Cat 1"}, {"stage": "A2 Transport", "input": "Gypsum inbound transport", "kg_co2e": 68.4, "scope": "Scope 3 Cat 4"}, {"stage": "A2 Transport", "input": "Liner board transport mill → plant", "kg_co2e": 11.4, "scope": "Scope 3 Cat 4"}, {"stage": "A3 Manufacturing", "input": "Natural gas – calcination", "kg_co2e": 442.2, "scope": "Scope 1"}, {"stage": "A3 Manufacturing", "input": "Natural gas – board drying", "kg_co2e": 904.5, "scope": "Scope 1"}, {"stage": "A3 Manufacturing", "input": "Natural gas – upstream", "kg_co2e": 201.0, "scope": "Scope 3 Cat 3"}, {"stage": "A3 Manufacturing", "input": "Electricity", "kg_co2e": 217.8, "scope": "Scope 2"}, {"stage": "A3 Manufacturing", "input": "Electricity – upstream & losses", "kg_co2e": 27.0, "scope": "Scope 3 Cat 3"}]}}, "suppliers": [{"id": "S01", "name": "Recycling Partner North", "country": "DE", "material": "Recovered paper", "volume_t": 160000.0, "spend_keur": 19200.0, "supplier_pcf": 0.012, "dqr": 2.0, "data_basis": "Supplier-specific", "t_co2e": 1920.0, "ecovadis": 68, "score": 75.6, "rating": "A – Strategic partner", "risk_index": 1.2344, "sbti": "Y", "action": "Joint decarb. roadmap, PCF exchange"}, {"id": "S02", "name": "Recycling Partner South", "country": "DE", "material": "Recovered paper", "volume_t": 135000.0, "spend_keur": 16200.0, "supplier_pcf": null, "dqr": null, "data_basis": "Secondary (no PCF)", "t_co2e": 2025.0, "ecovadis": null, "score": 42.25, "rating": "C – Improvement plan", "risk_index": 3.0814, "sbti": "N", "action": "Corrective action plan within 6 months"}, {"id": "S03", "name": "Municipal Paper Collection Pool", "country": "DE", "material": "Recovered paper", "volume_t": 92000.0, "spend_keur": 10100.0, "supplier_pcf": null, "dqr": null, "data_basis": "Secondary (no PCF)", "t_co2e": 1380.0, "ecovadis": null, "score": 33.25, "rating": "D – Escalate", "risk_index": 2.4272, "sbti": "N", "action": "Escalate to category mgmt; audit"}, {"id": "S04", "name": "RCP Trader Benelux", "country": "NL", "material": "Recovered paper", "volume_t": 55000.0, "spend_keur": 6900.0, "supplier_pcf": 0.02, "dqr": 3.6, "data_basis": "Secondary (DQR fail)", "t_co2e": 825.0, "ecovadis": 45, "score": 37.0, "rating": "D – Escalate", "risk_index": 1.3695, "sbti": "N", "action": "Escalate to category mgmt; audit"}, {"id": "S05", "name": "Starch Mill Central", "country": "DE", "material": "Native starch", "volume_t": 17200.0, "spend_keur": 8600.0, "supplier_pcf": 0.62, "dqr": 1.8, "data_basis": "Supplier-specific", "t_co2e": 10664.0, "ecovadis": 74, "score": 79.7, "rating": "A – Strategic partner", "risk_index": 5.7042, "sbti": "Y", "action": "Joint decarb. roadmap, PCF exchange"}, {"id": "S06", "name": "Mineral Fillers Alpine", "country": "AT", "material": "Calcium carbonate", "volume_t": 11900.0, "spend_keur": 1500.0, "supplier_pcf": 0.06, "dqr": 2.4, "data_basis": "Supplier-specific", "t_co2e": 714.0, "ecovadis": 61, "score": 60.8, "rating": "B – Develop", "risk_index": 0.7375, "sbti": "N", "action": "Request EcoVadis + SBTi commitment"}, {"id": "S07", "name": "ProcessChem Solutions", "country": "DE", "material": "Process chemicals", "volume_t": 4000.0, "spend_keur": 9200.0, "supplier_pcf": null, "dqr": null, "data_basis": "Secondary (no PCF)", "t_co2e": 8000.0, "ecovadis": 52, "score": 42.75, "rating": "C – Improvement plan", "risk_index": 12.0682, "sbti": "N", "action": "Corrective action plan within 6 months"}, {"id": "S08", "name": "PrintInk Europe", "country": "DE", "material": "Printing ink", "volume_t": 1575.0, "spend_keur": 7900.0, "supplier_pcf": 2.7, "dqr": 1.8, "data_basis": "Supplier-specific", "t_co2e": 4252.5, "ecovadis": 70, "score": 76.7, "rating": "A – Strategic partner", "risk_index": 2.6108, "sbti": "Y", "action": "Joint decarb. roadmap, PCF exchange"}, {"id": "S09", "name": "CoatTech Varnish", "country": "IT", "material": "Varnish", "volume_t": 840.0, "spend_keur": 3400.0, "supplier_pcf": null, "dqr": null, "data_basis": "Secondary (no PCF)", "t_co2e": 2100.0, "ecovadis": null, "score": 40.05, "rating": "C – Improvement plan", "risk_index": 3.3173, "sbti": "N", "action": "Corrective action plan within 6 months"}, {"id": "S10", "name": "BondWell Adhesives", "country": "DE", "material": "Adhesive", "volume_t": 525.0, "spend_keur": 1600.0, "supplier_pcf": 1.5, "dqr": 2.4, "data_basis": "Supplier-specific", "t_co2e": 787.5, "ecovadis": 58, "score": 54.35, "rating": "C – Improvement plan", "risk_index": 0.9473, "sbti": "N", "action": "Corrective action plan within 6 months"}, {"id": "S11", "name": "FilmPack Poly", "country": "PL", "material": "Stretch film", "volume_t": 855.0, "spend_keur": 1700.0, "supplier_pcf": null, "dqr": null, "data_basis": "Secondary (no PCF)", "t_co2e": 2223.0, "ecovadis": null, "score": 31.8, "rating": "D – Escalate", "risk_index": 3.9949, "sbti": "N", "action": "Escalate to category mgmt; audit"}, {"id": "S12", "name": "Gypsum Quarry Harz", "country": "DE", "material": "Natural gypsum", "volume_t": 202500.0, "spend_keur": 4100.0, "supplier_pcf": 0.005, "dqr": 1.6, "data_basis": "Supplier-specific", "t_co2e": 1012.5, "ecovadis": 63, "score": 61.2, "rating": "B – Develop", "risk_index": 1.0352, "sbti": "N", "action": "Request EcoVadis + SBTi commitment"}, {"id": "S13", "name": "Power Plant By-Products", "country": "DE", "material": "FGD gypsum", "volume_t": 121500.0, "spend_keur": 1800.0, "supplier_pcf": null, "dqr": null, "data_basis": "Secondary (no PCF)", "t_co2e": 243.0, "ecovadis": null, "score": 39.25, "rating": "D – Escalate", "risk_index": 0.389, "sbti": "N", "action": "Escalate to category mgmt; audit"}, {"id": "S14", "name": "Gypsum Recycling West", "country": "DE", "material": "Recycled gypsum", "volume_t": 81000.0, "spend_keur": 2400.0, "supplier_pcf": 0.007, "dqr": 1.8, "data_basis": "Supplier-specific", "t_co2e": 567.0, "ecovadis": 66, "score": 69.75, "rating": "B – Develop", "risk_index": 0.4519, "sbti": "Y", "action": "Request EcoVadis + SBTi commitment"}, {"id": "S15", "name": "GlassFibre Components", "country": "CZ", "material": "Glass fibre", "volume_t": 450.0, "spend_keur": 900.0, "supplier_pcf": null, "dqr": null, "data_basis": "Secondary (no PCF)", "t_co2e": 720.0, "ecovadis": null, "score": 40.25, "rating": "C – Improvement plan", "risk_index": 1.1336, "sbti": "N", "action": "Corrective action plan within 6 months"}, {"id": "S16", "name": "BuildAdd Chemicals", "country": "DE", "material": "Gypsum additives", "volume_t": 225.0, "spend_keur": 1100.0, "supplier_pcf": null, "dqr": null, "data_basis": "Secondary (no PCF)", "t_co2e": 517.5, "ecovadis": null, "score": 34.5, "rating": "D – Escalate", "risk_index": 0.8932, "sbti": "N", "action": "Escalate to category mgmt; audit"}], "levers": [{"id": "L01", "lever": "Additional renewable PPA (+50% of electricity)", "scope": "S2", "reduction_t": 71933.3864, "capex_keur": 0.0, "cost_eur_t": 25.0232, "start": "2026", "priority": "High – below CO₂ price"}, {"id": "L02", "lever": "Heat pumps / MVR for board drying steam", "scope": "S1", "reduction_t": 27152.7245, "capex_keur": 38000.0, "cost_eur_t": 36.8287, "start": "2027", "priority": "High – below CO₂ price"}, {"id": "L03", "lever": "Electrode boiler on renewable power (board mill)", "scope": "S1", "reduction_t": 20364.5434, "capex_keur": 9000.0, "cost_eur_t": 103.1204, "start": "2028", "priority": "Medium"}, {"id": "L04", "lever": "Heat recovery in gypsum board dryers", "scope": "S1", "reduction_t": 7272.18, "capex_keur": 6000.0, "cost_eur_t": -41.2531, "start": "2026", "priority": "Quick win (saves)"}, {"id": "L05", "lever": "Biomethane for gypsum calcination (share)", "scope": "S1", "reduction_t": 3385.8, "capex_keur": 500.0, "cost_eur_t": 487.3294, "start": "2027", "priority": "Low"}, {"id": "L06", "lever": "Low-carbon starch (supplier engagement, −30% EF)", "scope": "S3-1", "reduction_t": 3199.2, "capex_keur": 0.0, "cost_eur_t": 78.1445, "start": "2026", "priority": "High – below CO₂ price"}, {"id": "L07", "lever": "Low-carbon / bio-based inks (−25% EF)", "scope": "S3-1", "reduction_t": 1063.125, "capex_keur": 0.0, "cost_eur_t": 141.0935, "start": "2026", "priority": "Medium"}, {"id": "L08", "lever": "Modal shift RCP inbound to rail (share of tkm)", "scope": "S3-4", "reduction_t": 1779.2429, "capex_keur": 0.0, "cost_eur_t": 168.611, "start": "2027", "priority": "Medium"}, {"id": "L09", "lever": "Board lightweighting in folding cartons (−5% grammage)", "scope": "Mixed", "reduction_t": 4275.9908, "capex_keur": 1500.0, "cost_eur_t": -245.5571, "start": "2026", "priority": "Quick win (saves)"}, {"id": "L10", "lever": "Electric collection trucks at RCP suppliers (−30%)", "scope": "S3-1", "reduction_t": 1845.0, "capex_keur": 0.0, "cost_eur_t": 54.2005, "start": "2028", "priority": "High – below CO₂ price"}], "kpis": [{"group": "Climate", "kpi": "Total GHG emissions (S1 + S2 MB + S3)", "actual": 511098.4475, "unit": "t CO₂e", "target": null, "status": "Monitor"}, {"group": "Climate", "kpi": "Scope 1", "actual": 202028.5227, "unit": "t CO₂e", "target": null, "status": "Monitor"}, {"group": "Climate", "kpi": "Scope 2 (market-based)", "actual": 107900.0795, "unit": "t CO₂e", "target": null, "status": "Monitor"}, {"group": "Climate", "kpi": "Scope 3", "actual": 201169.8453, "unit": "t CO₂e", "target": null, "status": "Monitor"}, {"group": "Climate", "kpi": "Scope 3 share of total", "actual": 0.3936, "unit": "%", "target": null, "status": "Monitor"}, {"group": "Product Carbon Footprints", "kpi": "PCF recycled cartonboard", "actual": 716.7375, "unit": "kg CO₂e/t", "target": 550.0, "status": "✖ Gap"}, {"group": "Product Carbon Footprints", "kpi": "PCF folding carton", "actual": 1056.5885, "unit": "kg CO₂e/t", "target": 750.0, "status": "✖ Gap"}, {"group": "Product Carbon Footprints", "kpi": "PCF gypsum board", "actual": 2.2628, "unit": "kg CO₂e/m²", "target": 1.8, "status": "✖ Gap"}, {"group": "Supplier data & procurement", "kpi": "Cat 1 emissions based on supplier-specific data", "actual": 0.5248, "unit": "%", "target": 0.5, "status": "✔ On track"}, {"group": "Supplier data & procurement", "kpi": "Suppliers (by spend) with EcoVadis assessment", "actual": 0.6356, "unit": "%", "target": 0.8, "status": "✖ Gap"}, {"group": "Supplier data & procurement", "kpi": "Spend with A/B-rated suppliers", "actual": 0.4524, "unit": "%", "target": 0.75, "status": "✖ Gap"}, {"group": "Supplier data & procurement", "kpi": "Cat 1 emissions with suppliers having SBTi targets", "actual": 0.4586, "unit": "%", "target": 0.67, "status": "✖ Gap"}, {"group": "Supplier data & procurement", "kpi": "Average supplier ESG score (spend-weighted)", "actual": 55.3135, "unit": "pts", "target": 60.0, "status": "✖ Gap"}, {"group": "Supplier data & procurement", "kpi": "Average DQR of supplier PCFs", "actual": 2.175, "unit": "1-5", "target": 2.5, "status": "✔ On track"}, {"group": "Supplier data & procurement", "kpi": "Suppliers rated D – escalation needed", "actual": 5.0, "unit": "#", "target": 0.0, "status": "✖ Gap"}, {"group": "Circularity & data quality", "kpi": "Recycled fibre share in board", "actual": 1.0, "unit": "%", "target": 1.0, "status": "✔ On track"}, {"group": "Circularity & data quality", "kpi": "Internal trim recycled in closed loop", "actual": 14318.1818, "unit": "t", "target": null, "status": "Monitor"}, {"group": "Circularity & data quality", "kpi": "Recycled gypsum share", "actual": 0.2, "unit": "%", "target": 0.3, "status": "✖ Gap"}, {"group": "Circularity & data quality", "kpi": "Mass balance deviation RCP (register vs. need)", "actual": 0.0014, "unit": "%", "target": 0.02, "status": "✔ On track"}, {"group": "Decarbonisation", "kpi": "Identified reduction potential", "actual": 142271.1929, "unit": "t CO₂e/yr", "target": null, "status": "Monitor"}, {"group": "Decarbonisation", "kpi": "… as % of total inventory", "actual": 0.2784, "unit": "%", "target": 0.2, "status": "✔ On track"}], "pcf_headline": {"board_kg_t": 716.7375, "carton_kg_t": 1056.5885, "gypsum_kg_m2": 2.263}};
+const $ = s => document.querySelector(s);
+const NS = "http://www.w3.org/2000/svg";
+const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const fmt = (v, d=0) => v==null||v==="" ? "–" : Number(v).toLocaleString("en-US",{maximumFractionDigits:d,minimumFractionDigits:d});
+const kfmt = v => Math.abs(v)>=1000 ? fmt(v/1000, Math.abs(v)>=100000?0:1)+"k" : fmt(v);
+const el = (tag, attrs={}, parent) => { const e=document.createElementNS(NS,tag); for(const k in attrs) e.setAttribute(k,attrs[k]); if(parent) parent.appendChild(e); return e; };
+const tip = $("#tip");
+function showTip(ev, html){ tip.innerHTML=html; tip.style.opacity=1; const x=Math.min(ev.clientX+14, innerWidth-tip.offsetWidth-8), y=Math.min(ev.clientY+14, innerHeight-tip.offsetHeight-8); tip.style.left=x+"px"; tip.style.top=y+"px"; }
+function hideTip(){ tip.style.opacity=0; }
+function hover(node, html){ node.style.cursor="default"; node.addEventListener("pointermove", e=>showTip(e, html)); node.addEventListener("pointerleave", hideTip); }
+
+// theme toggle
+const root=document.documentElement;
+try{ const t=localStorage.getItem("cc-theme"); if(t) root.dataset.theme=t; }catch(e){}
+$("#theme").onclick=()=>{ const dark = root.dataset.theme ? root.dataset.theme==="dark" : matchMedia("(prefers-color-scheme: dark)").matches; root.dataset.theme = dark?"light":"dark"; try{localStorage.setItem("cc-theme",root.dataset.theme);}catch(e){} renderAll(); };
+
+const S=D.summary, S1=S["Scope 1"], S2=S["Scope 2 – market-based"], S2L=S["Scope 2 – location-based"], S3=S["Scope 3"], TOT=S["TOTAL Scope 1 + 2 (market-based) + 3"];
+$("#yr").textContent=D.year;
+
+// ---------- static sections ----------
+function tiles(){
+  const cov = D.kpis.find(k=>k.kpi.startsWith("Cat 1 emissions based on supplier"));
+  const red = D.kpis.find(k=>k.kpi.startsWith("… as % of total"));
+  const t=[
+    ["Total footprint", kfmt(TOT)+" t", "CO₂e · Scope 1 + 2 (MB) + 3", "var(--ink)"],
+    ["Scope 3 share", fmt(S3/TOT*100)+" %", kfmt(S3)+" t from the value chain", "var(--s3)"],
+    ["Supplier-specific data", fmt(cov.actual*100)+" %", "of Cat 1 emissions · target "+fmt(cov.target*100)+" %", "var(--s1)"],
+    ["Reduction potential", fmt(red.actual*100)+" %", kfmt(D.levers.reduce((a,l)=>a+l.reduction_t,0))+" t CO₂e / yr from 10 levers", "var(--s2)"],
+  ];
+  $("#tiles").innerHTML=t.map(x=>`<div class="card tile"><div class="lbl">${x[0]}</div><div class="val">${x[1]}</div><div class="sub">${x[2]}</div><div class="bar" style="background:${x[3]}"></div></div>`).join("");
+  const p=D.pcf_headline;
+  $("#pcftiles").innerHTML=[["Recycled cartonboard",fmt(p.board_kg_t),"kg CO₂e / t"],["Folding carton",fmt(p.carton_kg_t),"kg CO₂e / t"],["Gypsum board 12.5 mm",fmt(p.gypsum_kg_m2,2),"kg CO₂e / m²"]]
+    .map(x=>`<div class="card tile"><div class="lbl">${x[0]}</div><div class="val">${x[1]}</div><div class="sub">${x[2]} · cradle-to-gate</div></div>`).join("");
+  const cards=[
+    ["Scope 1","var(--s1)","Direct emissions from sources the company owns or controls.",S1,["Natural gas in board-mill boilers / CHP","Calcination &amp; drying in gypsum plants","Forklift and yard-vehicle diesel"]],
+    ["Scope 2","var(--s2)","Indirect emissions from purchased electricity, steam or heat.",S2,["Grid electricity for pulpers, board machines, presses","Market-based: certificates / PPAs lower it","Location-based: "+kfmt(S2L)+" t (grid average)"]],
+    ["Scope 3","var(--s3)","All other indirect emissions up- and downstream (15 categories).",S3,["Cat 1 purchased goods – starch, chemicals, gypsum, recovered paper","Cat 3 fuel upstream · Cat 4 transport","Cat 10 processing of sold board · Cat 12 end-of-life"]],
+  ];
+  $("#scopecards").innerHTML=cards.map(c=>`<div class="card scope" style="border-top-color:${c[1]}"><h3><span class="badge" style="background:${c[1]}">${c[0]}</span></h3><p class="note" style="margin:6px 0 0">${c[2]}</p><div class="big">${kfmt(c[3])} t CO₂e <span style="font-size:13px;color:var(--ink2);font-weight:400">· ${fmt(c[3]/TOT*100)} %</span></div><ul>${c[4].map(x=>`<li>${x}</li>`).join("")}</ul></div>`).join("");
+}
+
+function tables(){
+  $("#invn").textContent=D.inventory.length;
+  $("#invtable").innerHTML=`<thead><tr><th>Code</th><th>Source</th><th class="n">Activity</th><th>Unit</th><th class="n">t CO₂e</th><th>Method</th><th class="n">DQ</th></tr></thead><tbody>`+
+    D.inventory.map(r=>`<tr><td>${r.code}</td><td>${r.source}</td><td class="n">${fmt(r.activity)}</td><td>${r.unit}</td><td class="n">${fmt(r.t_co2e)}</td><td>${r.method}</td><td class="n">${r.dq??""}</td></tr>`).join("")+"</tbody>";
+  $("#suptable").innerHTML=`<thead><tr><th>ID</th><th>Supplier</th><th>Material</th><th class="n">Volume t</th><th class="n">DQR</th><th>Data basis</th><th class="n">t CO₂e</th><th class="n">Score</th><th>Rating</th><th>Action</th></tr></thead><tbody>`+
+    D.suppliers.map(s=>`<tr><td>${s.id}</td><td>${s.name}</td><td>${s.material}</td><td class="n">${fmt(s.volume_t)}</td><td class="n">${s.dqr==null?"–":fmt(s.dqr,1)}</td><td>${s.data_basis}</td><td class="n">${fmt(s.t_co2e)}</td><td class="n">${fmt(s.score)}</td><td>${s.rating}</td><td>${s.action}</td></tr>`).join("")+"</tbody>";
+  $("#levtable").innerHTML=`<thead><tr><th>ID</th><th>Lever</th><th>Scope</th><th class="n">t CO₂e / yr</th><th class="n">Capex kEUR</th><th class="n">EUR / t</th><th>Start</th><th>Priority</th></tr></thead><tbody>`+
+    D.levers.map(l=>`<tr><td>${l.id}</td><td>${l.lever}</td><td>${l.scope}</td><td class="n">${fmt(l.reduction_t)}</td><td class="n">${fmt(l.capex_keur)}</td><td class="n">${fmt(l.cost_eur_t)}</td><td>${l.start}</td><td>${l.priority}</td></tr>`).join("")+"</tbody>";
+  let g=null, rows="";
+  for(const k of D.kpis){
+    if(k.group!==g){ g=k.group; rows+=`<tr class="grp"><td colspan="5">${g}</td></tr>`; }
+    const pct=k.unit==="%", dec=(k.unit==="kg CO₂e/m²"||k.unit==="1-5")?2:0;
+    const v=x=>x==null?"–":pct?fmt(x*100,1)+" %":fmt(x,dec);
+    const st=k.status.startsWith("✔")?`<span class="status ok"><span class="dot">✓</span>On track</span>`:k.status.startsWith("✖")?`<span class="status gap"><span class="dot">!</span>Gap</span>`:`<span class="status mon"><span class="dot">•</span>Monitor</span>`;
+    rows+=`<tr><td>${k.kpi}</td><td class="n"><b>${v(k.actual)}</b></td><td>${pct?"":k.unit}</td><td class="n">${v(k.target)}</td><td>${st}</td></tr>`;
+  }
+  $("#kpitable").innerHTML=`<thead><tr><th>KPI</th><th class="n">Actual</th><th>Unit</th><th class="n">Target</th><th>Status</th></tr></thead><tbody>${rows}</tbody>`;
+}
+
+// ---------- chart helpers ----------
+function svgFor(id, h){ const host=$(id); host.innerHTML=""; const w=host.clientWidth||600; const s=el("svg",{class:"chart",viewBox:`0 0 ${w} ${h}`,width:w,height:h,role:"img"},host); return [s,w]; }
+function legend(id, items){ $(id).innerHTML=items.map(([c,l])=>`<span><i style="background:${c}"></i>${l}</span>`).join(""); }
+function niceMax(v){ const p=Math.pow(10,Math.floor(Math.log10(v))); for(const m of [1,2,2.5,5,10]) if(m*p>=v) return m*p; }
+function roundedBar(svg, x, y, w, h, fill, r=4){ // horizontal bar, rounded at data end only
+  r=Math.min(r, w, h/2); if(w<=0) return el("rect",{x,y,width:0,height:h},svg);
+  return el("path",{d:`M${x},${y} H${x+w-r} Q${x+w},${y} ${x+w},${y+r} V${y+h-r} Q${x+w},${y+h} ${x+w-r},${y+h} H${x} Z`,fill},svg);
+}
+
+function stacked(id, parts, h=64){ // single 100% bar
+  const [svg,w]=svgFor(id,h); const tot=parts.reduce((a,p)=>a+p.v,0); let x=0;
+  parts.forEach((p,i)=>{ const pw=p.v/tot*w; const r=el("rect",{x:x+(i?1:0),y:0,width:Math.max(pw-(i?2:0)-(i<parts.length-1?1:0),0),height:40,rx:i===0||i===parts.length-1?4:0,fill:p.c},svg);
+    if(pw>70){ const t=el("text",{x:x+pw/2,y:25,"text-anchor":"middle","font-size":13,"font-weight":700,fill:p.ink||"#fff"},svg); t.textContent=fmt(p.v/tot*100)+" %"; }
+    const lab=el("text",{x:x+(i===parts.length-1?pw:0),y:58,"text-anchor":i===parts.length-1?"end":"start","font-size":12,fill:css("--ink2")},svg); if(pw>110||i===parts.length-1) lab.textContent=kfmt(p.v)+" t";
+    const hit=el("rect",{x,y:0,width:pw,height:h,fill:"transparent"},svg); hover(hit,`<b>${p.l}</b><span class="k">${fmt(p.v)} t CO₂e · ${fmt(p.v/tot*100,1)} %</span>`); x+=pw; });
+}
+
+function hbars(id, rows, opt={}){ // rows: {l, v, c, tip}
+  const lw=opt.lw||210, rh=opt.rh||28, pad=8, top=opt.refs?18:0, h=rows.length*rh+28+top;
+  const [root,w]=svgFor(id,h); const svg=el("g",{transform:`translate(0,${top})`},root); const pw=w-lw-60; const max=opt.max||niceMax(Math.max(...rows.map(r=>r.v)));
+  const ticks=opt.ticks||4;
+  for(let i=0;i<=ticks;i++){ const x=lw+pw*i/ticks; el("line",{x1:x,x2:x,y1:0,y2:rows.length*rh,stroke:css("--grid")},svg); const t=el("text",{x,y:rows.length*rh+18,"text-anchor":"middle","font-size":11,fill:css("--muted")},svg); t.textContent=opt.tickFmt?opt.tickFmt(max*i/ticks):kfmt(max*i/ticks); }
+  (opt.refs||[]).forEach(rf=>{ const x=lw+pw*rf.v/max; el("line",{x1:x,x2:x,y1:-4,y2:rows.length*rh,stroke:css("--ink2"),"stroke-dasharray":"3 3"},svg); const t=el("text",{x,y:-8,"text-anchor":"middle","font-size":11,fill:css("--ink2"),"font-weight":700},svg); t.textContent=rf.l+" ≥ "+rf.v; });
+  el("line",{x1:lw,x2:lw,y1:0,y2:rows.length*rh,stroke:css("--axis")},svg);
+  rows.forEach((r,i)=>{ const y=i*rh+pad/2; const bw=Math.max(pw*r.v/max,1);
+    const lab=el("text",{x:lw-8,y:y+(rh-pad)/2+4,"text-anchor":"end","font-size":12,fill:css("--ink2")},svg); lab.textContent=r.l.length>34?r.l.slice(0,33)+"…":r.l;
+    roundedBar(svg,lw,y,bw,rh-pad,r.c);
+    const vt=el("text",{x:lw+bw+6,y:y+(rh-pad)/2+4,"font-size":11.5,fill:css("--ink2")},svg); vt.textContent=r.vl??kfmt(r.v);
+    const hit=el("rect",{x:0,y:i*rh,width:w,height:rh,fill:"transparent"},svg);
+    hit.addEventListener("pointerenter",()=>hit.setAttribute("fill",css("--hover"))); hit.addEventListener("pointerleave",()=>hit.setAttribute("fill","transparent"));
+    hover(hit, r.tip||`<b>${r.l}</b>${fmt(r.v)}`); });
+}
+
+// ---------- charts ----------
+const SC = () => ({S1:css("--s1"),S2:css("--s2"),"S3-1":css("--s3"),"S3-4":css("--s3"),Mixed:css("--s4")});
+let pcfKey="board";
+function charts(){
+  const parts=[{l:"Scope 1 – direct",v:S1,c:css("--s1")},{l:"Scope 2 – market-based",v:S2,c:css("--s2")},{l:"Scope 3 – value chain",v:S3,c:css("--s3")}];
+  legend("#splitLegend",parts.map(p=>[p.c,p.l])); stacked("#split",parts);
+  hbars("#s2",[{l:"Location-based (grid mix)",v:S2L,c:css("--neutral"),tip:`<b>Location-based</b>${fmt(S2L)} t · grid average factor`},{l:"Market-based (contracts)",v:S2,c:css("--s2"),tip:`<b>Market-based</b>${fmt(S2)} t · 25 % renewable certificates, rest residual mix`}],{lw:180,rh:34});
+  const cats=D.scope3_categories.filter(c=>c.t_co2e>0).sort((a,b)=>b.t_co2e-a.t_co2e);
+  hbars("#cats",cats.map(c=>({l:c.category.replace(/^Cat (\d+) – /,"$1 · "),v:c.t_co2e,c:css("--s3"),vl:kfmt(c.t_co2e)+" · "+fmt(c.share*100)+"%",tip:`<b>${c.category}</b>${fmt(c.t_co2e)} t CO₂e<br><span class="k">${fmt(c.share*100,1)} % of Scope 3</span>`})),{lw:210,rh:30});
+  // PCF
+  const prods=[["board","Recycled cartonboard","kg CO₂e / t",1],["carton","Folding carton","kg CO₂e / t",1],["gypsum","Gypsum board","kg CO₂e / m²",1000]];
+  $("#pcftabs").innerHTML=prods.map(p=>`<button type="button" data-k="${p[0]}" aria-pressed="${p[0]===pcfKey}">${p[1]}</button>`).join("");
+  $("#pcftabs").querySelectorAll("button").forEach(b=>b.onclick=()=>{pcfKey=b.dataset.k;charts();});
+  const pr=prods.find(p=>p[0]===pcfKey), P=D.pcf[pcfKey], stc={A1:css("--s1"),A2:css("--s2"),A3:css("--s3")};
+  const items=P.items.filter(i=>i.kg_co2e>0.05).sort((a,b)=>b.kg_co2e-a.kg_co2e);
+  const div=pr[3], dec=div>1?3:1;
+  hbars("#pcfchart",items.map(i=>({l:i.input,v:i.kg_co2e/div,c:stc[i.stage.slice(0,2)],vl:fmt(i.kg_co2e/div,dec)+" · "+fmt(i.kg_co2e/P.total*100)+"%",
+    tip:`<b>${i.input}</b>${fmt(i.kg_co2e/div,dec)} ${pr[2]}<br><span class="k">${i.stage} · ${i.scope} · ${fmt(i.kg_co2e/P.total*100,1)} % of PCF</span>`})),
+    {lw:260,rh:28,tickFmt:v=>fmt(v,div>1?2:0)});
+  // suppliers
+  const bc={"Supplier-specific":css("--s3"),"Secondary (DQR fail)":css("--s2"),"Secondary (no PCF)":css("--neutral")};
+  const bparts=Object.keys(bc).map(k=>({l:k,v:D.suppliers.filter(s=>s.data_basis===k).reduce((a,s)=>a+s.t_co2e,0),c:bc[k],ink:k.includes("no PCF")?css("--ink"):"#fff"}));
+  legend("#basisLegend",bparts.map(p=>[p.c,p.l])); stacked("#basis",bparts);
+  const sups=[...D.suppliers].sort((a,b)=>b.t_co2e-a.t_co2e);
+  hbars("#supem",sups.map(s=>({l:s.name,v:s.t_co2e,c:bc[s.data_basis],tip:`<b>${s.id} · ${s.name}</b>${s.material} · ${fmt(s.volume_t)} t<br>${fmt(s.t_co2e)} t CO₂e<br><span class="k">${s.data_basis}${s.dqr!=null?" · DQR "+fmt(s.dqr,1):""}</span>`})),{lw:200,rh:24});
+  const rc={A:css("--r1"),B:css("--r2"),C:css("--r3"),D:css("--r4")};
+  legend("#ratingLegend",[[rc.A,"A – Strategic partner"],[rc.B,"B – Develop"],[rc.C,"C – Improvement plan"],[rc.D,"D – Escalate"]]);
+  const ss=[...D.suppliers].sort((a,b)=>b.score-a.score);
+  hbars("#score",ss.map(s=>({l:s.name,v:s.score,c:rc[s.rating[0]],vl:fmt(s.score)+" · "+s.rating[0],tip:`<b>${s.name}</b>Score ${fmt(s.score,1)} · ${s.rating}<br><span class="k">EcoVadis ${s.ecovadis??"not assessed"} · SBTi ${s.sbti}<br>→ ${s.action}</span>`})),
+    {lw:200,rh:26,max:100,ticks:5,tickFmt:v=>fmt(v),refs:[{v:40,l:"C"},{v:55,l:"B"},{v:70,l:"A"}]});
+  macc();
+}
+
+function macc(){
+  const lv=D.levers.filter(l=>typeof l.cost_eur_t==="number").sort((a,b)=>a.cost_eur_t-b.cost_eur_t);
+  const [svg,w]=svgFor("#macc",360); const L=56,R=16,T=16,B=44, pw=w-L-R, ph=360-T-B;
+  const tot=lv.reduce((a,l)=>a+l.reduction_t,0); const ymin=-300, ymax=500;
+  const X=v=>L+pw*v/tot, Y=v=>T+ph*(ymax-v)/(ymax-ymin);
+  for(let v=ymin; v<=ymax; v+=100){ el("line",{x1:L,x2:L+pw,y1:Y(v),y2:Y(v),stroke:v===0?css("--axis"):css("--grid")},svg); const t=el("text",{x:L-8,y:Y(v)+4,"text-anchor":"end","font-size":11,fill:css("--muted")},svg); t.textContent=v; }
+  for(let v=0; v<=tot; v+=20000){ const t=el("text",{x:X(v),y:T+ph+18,"text-anchor":"middle","font-size":11,fill:css("--muted")},svg); t.textContent=kfmt(v); }
+  const xl=el("text",{x:L+pw/2,y:T+ph+38,"text-anchor":"middle","font-size":12,fill:css("--ink2")},svg); xl.textContent="Cumulative reduction (t CO₂e / yr)";
+  const yl=el("text",{x:14,y:T+ph/2,"text-anchor":"middle","font-size":12,fill:css("--ink2"),transform:`rotate(-90 14 ${T+ph/2})`},svg); yl.textContent="EUR / t CO₂e";
+  const sc=SC(); let x=0;
+  lv.forEach(l=>{ const x0=X(x)+1, x1=X(x+l.reduction_t)-1, y0=Y(0), y1=Y(Math.max(Math.min(l.cost_eur_t,ymax),ymin));
+    const r=el("rect",{x:x0,y:Math.min(y0,y1),width:Math.max(x1-x0,1),height:Math.abs(y1-y0),fill:sc[l.scope],rx:2},svg);
+    if(x1-x0>26){ const t=el("text",{x:(x0+x1)/2,y:l.cost_eur_t>=0?y1-6:y1+14,"text-anchor":"middle","font-size":11,"font-weight":700,fill:css("--ink2")},svg); t.textContent=l.id; }
+    const hit=el("rect",{x:x0,y:T,width:Math.max(x1-x0,6),height:ph,fill:"transparent"},svg);
+    hit.addEventListener("pointerenter",()=>r.setAttribute("opacity",.8)); hit.addEventListener("pointerleave",()=>r.setAttribute("opacity",1));
+    hover(hit,`<b>${l.id} · ${l.lever}</b>${fmt(l.reduction_t)} t CO₂e / yr<br>${fmt(l.cost_eur_t)} EUR / t · capex ${fmt(l.capex_keur)} kEUR<br><span class="k">${l.scope} · start ${l.start} · ${l.priority}</span>`);
+    x+=l.reduction_t; });
+  el("line",{x1:L,x2:L+pw,y1:Y(100),y2:Y(100),stroke:css("--ink2"),"stroke-dasharray":"5 4"},svg);
+  const t=el("text",{x:L+pw*0.3,y:Y(100)-6,"font-size":11,fill:css("--ink2")},svg); t.textContent="CO₂ price 100 EUR/t";
+}
+
+function renderAll(){ tiles(); tables(); charts(); }
+renderAll();
+let rt; addEventListener("resize",()=>{clearTimeout(rt); rt=setTimeout(charts,150);});
+</script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+id,lever,scope,reduction_t,capex_keur,cost_eur_t,start,priority
+L01,Additional renewable PPA (+50% of electricity),S2,71933.3864,0.0,25.0232,2026,High – below CO₂ price
+L02,Heat pumps / MVR for board drying steam,S1,27152.7245,38000.0,36.8287,2027,High – below CO₂ price
+L03,Electrode boiler on renewable power (board mill),S1,20364.5434,9000.0,103.1204,2028,Medium
+L04,Heat recovery in gypsum board dryers,S1,7272.18,6000.0,-41.2531,2026,Quick win (saves)
+L05,Biomethane for gypsum calcination (share),S1,3385.8,500.0,487.3294,2027,Low
+L06,"Low-carbon starch (supplier engagement, −30% EF)",S3-1,3199.2,0.0,78.1445,2026,High – below CO₂ price
+L07,Low-carbon / bio-based inks (−25% EF),S3-1,1063.125,0.0,141.0935,2026,Medium
+L08,Modal shift RCP inbound to rail (share of tkm),S3-4,1779.2429,0.0,168.611,2027,Medium
+L09,Board lightweighting in folding cartons (−5% grammage),Mixed,4275.9908,1500.0,-245.5571,2026,Quick win (saves)
+L10,Electric collection trucks at RCP suppliers (−30%),S3-1,1845.0,0.0,54.2005,2028,High – below CO₂ price

@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" font-family="system-ui, -apple-system, 'Segoe UI', Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">Animated explainer: Scope 1, 2 and 3</title>
+  <desc id="d">The company's board mill burns gas and emits CO2 from its own chimney (Scope 1). A power plant emits CO2 to make the electricity the mill buys (Scope 2). Trucks bring materials from suppliers and take products to customers and end-of-life (Scope 3). The captions cycle through the three scopes.</desc>
+  <style>
+    .lbl{font-size:13px;font-weight:700;fill:#ffffff}
+    .h{font-size:15px;font-weight:700;fill:#0b0b0b}
+    .s{font-size:12.5px;fill:#52514e}
+    .cap{font-size:19px;font-weight:700}
+    .cap2{font-size:14px;fill:#52514e}
+    .co2{font-size:9px;font-weight:700;fill:#ffffff}
+    @keyframes rise{0%{transform:translateY(0) scale(.6);opacity:0}15%{opacity:.95}100%{transform:translateY(-70px) scale(1.1);opacity:0}}
+    .puff{animation:rise 3s ease-out infinite;transform-box:fill-box;transform-origin:center}
+    .p2{animation-delay:1s}.p3{animation-delay:2s}
+    @keyframes drive{0%{transform:translateX(0);opacity:0}8%{opacity:1}88%{opacity:1}100%{transform:translateX(var(--d));opacity:0}}
+    .truck{animation:drive 4.5s linear infinite}
+    .t2{animation-delay:2.25s}
+    @keyframes dash{to{stroke-dashoffset:-28}}
+    .power{stroke:#eda100;stroke-width:3;fill:none;stroke-dasharray:10 4;animation:dash .7s linear infinite}
+    .loop{stroke:#138a5f;stroke-width:2.4;fill:none;stroke-dasharray:8 6;animation:dash 1.4s linear infinite}
+    /* 15 s narrative: Scope 1 → Scope 2 → Scope 3 */
+    @keyframes k1{0%,30%{opacity:1}34%,96%{opacity:0}100%{opacity:1}}
+    @keyframes k2{0%,30%{opacity:0}34%,63%{opacity:1}67%,100%{opacity:0}}
+    @keyframes k3{0%,63%{opacity:0}67%,96%{opacity:1}100%{opacity:0}}
+    .c1{animation:k1 15s infinite}.c2{animation:k2 15s infinite}.c3{animation:k3 15s infinite}
+    @media (prefers-reduced-motion: reduce){
+      .puff,.truck,.power,.loop{animation:none}
+      .c1,.c2,.c3{animation:none}.c2,.c3{opacity:0}
+    }
+  </style>
+  <rect width="1200" height="600" rx="16" fill="#fcfcfb"/>
+  <text x="30" y="40" font-size="22" font-weight="800" fill="#0b0b0b">Who controls the source? Scope 1 · 2 · 3</text>
+  <text x="30" y="62" class="s">GHG Protocol: the same tonne of CO₂ is counted in a different scope depending on whose chimney it leaves</text>
+
+  <!-- zones (base) -->
+  <rect x="30" y="80" width="300" height="170" rx="14" fill="#fdeee7"/>
+  <rect x="30" y="262" width="300" height="208" rx="14" fill="#e8f7f1"/>
+  <rect x="350" y="80" width="480" height="390" rx="14" fill="#e6f0fc"/>
+  <rect x="850" y="80" width="320" height="390" rx="14" fill="#e8f7f1"/>
+  <!-- zone highlights synced with captions -->
+  <rect class="c2" x="30" y="80" width="300" height="170" rx="14" fill="none" stroke="#eb6834" stroke-width="4"/>
+  <rect class="c1" x="350" y="80" width="480" height="390" rx="14" fill="none" stroke="#2a78d6" stroke-width="4"/>
+  <g class="c3" fill="none" stroke="#1baf7a" stroke-width="4"><rect x="30" y="262" width="300" height="208" rx="14"/><rect x="850" y="80" width="320" height="390" rx="14"/></g>
+
+  <!-- tags -->
+  <rect x="44" y="92" width="168" height="24" rx="12" fill="#eb6834"/><text x="128" y="109" class="lbl" text-anchor="middle">SCOPE 2 · energy we buy</text>
+  <rect x="44" y="274" width="150" height="24" rx="12" fill="#1baf7a"/><text x="119" y="291" class="lbl" text-anchor="middle">SCOPE 3 · upstream</text>
+  <rect x="364" y="92" width="158" height="24" rx="12" fill="#2a78d6"/><text x="443" y="109" class="lbl" text-anchor="middle">SCOPE 1 · we own it</text>
+  <rect x="864" y="92" width="170" height="24" rx="12" fill="#1baf7a"/><text x="949" y="109" class="lbl" text-anchor="middle">SCOPE 3 · downstream</text>
+
+  <!-- power plant -->
+  <rect x="60" y="160" width="90" height="70" rx="4" fill="#9a9890"/>
+  <rect x="72" y="175" width="18" height="18" fill="#fcfcfb"/><rect x="104" y="175" width="18" height="18" fill="#fcfcfb"/>
+  <path d="M235,230 L245,150 Q270,140 295,150 L305,230 Z" fill="#c3c2b7"/>
+  <text x="105" y="246" class="s" text-anchor="middle" font-size="11">power plant</text>
+  <g transform="translate(270,140)">
+    <g class="puff"><circle r="15" fill="#eb6834"/><text class="co2" text-anchor="middle" y="3">CO₂</text></g>
+    <g class="puff p2"><circle r="15" fill="#eb6834"/><text class="co2" text-anchor="middle" y="3">CO₂</text></g>
+    <g class="puff p3"><circle r="15" fill="#eb6834"/><text class="co2" text-anchor="middle" y="3">CO₂</text></g>
+  </g>
+  <!-- power line -->
+  <path class="power" d="M150,185 H300 Q340,185 380,185 H540 V262"/>
+  <text x="440" y="178" class="s" font-size="11" fill="#a06d00">⚡ electricity</text>
+  <circle r="6" fill="#eda100"><animateMotion dur="1.6s" repeatCount="indefinite" path="M150,185 H540 V262"/></circle>
+
+  <!-- factory -->
+  <path d="M420,410 V290 L480,262 V290 L540,262 V290 L600,262 V290 L660,262 V410 Z" fill="#256abf"/>
+  <rect x="690" y="180" width="34" height="230" fill="#184f95"/>
+  <rect x="660" y="330" width="100" height="80" fill="#2a78d6"/>
+  <rect x="445" y="330" width="40" height="40" fill="#cde2fb"/><rect x="505" y="330" width="40" height="40" fill="#cde2fb"/><rect x="565" y="330" width="40" height="40" fill="#cde2fb"/>
+  <text x="540" y="398" font-size="14" font-weight="700" fill="#ffffff" text-anchor="middle">Board mill · gas boilers &amp; dryers</text>
+  <text x="540" y="312" font-size="11.5" fill="#ffffff" text-anchor="middle">+ forklifts burning diesel</text>
+  <g transform="translate(707,168)">
+    <g class="puff"><circle r="17" fill="#2a78d6"/><text class="co2" text-anchor="middle" y="3">CO₂</text></g>
+    <g class="puff p2"><circle r="17" fill="#2a78d6"/><text class="co2" text-anchor="middle" y="3">CO₂</text></g>
+    <g class="puff p3"><circle r="17" fill="#2a78d6"/><text class="co2" text-anchor="middle" y="3">CO₂</text></g>
+  </g>
+
+  <!-- suppliers -->
+  <rect x="55" y="320" width="120" height="80" rx="4" fill="#5d5c57"/>
+  <path d="M50,322 L115,296 L180,322 Z" fill="#383835"/>
+  <text x="115" y="356" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">Suppliers</text>
+  <text x="115" y="378" fill="#ffffff" font-size="10.5" text-anchor="middle">paper · starch · gypsum</text>
+
+  <!-- customers & end of life -->
+  <rect x="890" y="200" width="140" height="90" rx="4" fill="#5d5c57"/>
+  <path d="M882,204 L960,170 L1038,204 Z" fill="#383835"/>
+  <text x="960" y="250" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">Customers</text>
+  <text x="960" y="306" class="s" text-anchor="middle" font-size="11">converters · brands · builders</text>
+  <path d="M1075,310 H1145 L1137,372 H1083 Z" fill="#5d5c57"/><rect x="1068" y="300" width="84" height="12" rx="3" fill="#383835"/>
+  <text x="1110" y="348" fill="#ffffff" font-size="18" text-anchor="middle">♻</text>
+  <text x="1110" y="390" class="s" text-anchor="middle" font-size="11">end-of-life</text>
+
+  <!-- road & trucks -->
+  <line x1="40" y1="414" x2="1160" y2="414" stroke="#c3c2b7" stroke-width="3" stroke-dasharray="14 10"/>
+  <g style="--d:230px" class="truck"><g transform="translate(175,388)"><rect width="46" height="22" rx="3" fill="#1baf7a"/><rect x="46" y="6" width="16" height="16" rx="2" fill="#138a5f"/><circle cx="12" cy="24" r="5" fill="#383835"/><circle cx="50" cy="24" r="5" fill="#383835"/></g></g>
+  <g style="--d:280px" class="truck t2"><g transform="translate(770,388)"><rect width="46" height="22" rx="3" fill="#1baf7a"/><rect x="46" y="6" width="16" height="16" rx="2" fill="#138a5f"/><circle cx="12" cy="24" r="5" fill="#383835"/><circle cx="50" cy="24" r="5" fill="#383835"/></g></g>
+  <!-- recycling loop -->
+  <path class="loop" d="M1142,340 H1160 V455 H40 V360 H53"/>
+  <text x="600" y="450" font-size="12" font-weight="700" fill="#138a5f" text-anchor="middle">♻ used cartons → recovered paper · gypsum waste → recycled gypsum</text>
+
+  <!-- captions -->
+  <g class="c1"><rect x="30" y="486" width="1140" height="96" rx="12" fill="#e6f0fc"/>
+    <text x="50" y="520" class="cap" fill="#1c5cab">Scope 1 · Direct emissions: 202,029 t CO₂e (40 %)</text>
+    <text x="50" y="546" class="cap2">CO₂ that leaves OUR chimneys and exhausts: natural gas in board-mill boilers/CHP, gypsum calcination and drying, forklift diesel.</text>
+    <text x="50" y="568" class="cap2">Lever: heat pumps / vapour recompression, electrode boilers, dryer heat recovery.</text></g>
+  <g class="c2"><rect x="30" y="486" width="1140" height="96" rx="12" fill="#fdeee7"/>
+    <text x="50" y="520" class="cap" fill="#b8461a">Scope 2 · Purchased electricity: 107,900 t CO₂e (21 %)</text>
+    <text x="50" y="546" class="cap2">CO₂ is emitted at the POWER PLANT, but our 232 GWh of demand caused it. Reported twice: location-based (grid mix) and market-based (contracts).</text>
+    <text x="50" y="568" class="cap2">Lever: renewable PPAs / Guarantees of Origin, on-site solar, efficient drives.</text></g>
+  <g class="c3"><rect x="30" y="486" width="1140" height="96" rx="12" fill="#e8f7f1"/>
+    <text x="50" y="520" class="cap" fill="#0f7a54">Scope 3 · Value chain: 201,170 t CO₂e (39 %)</text>
+    <text x="50" y="546" class="cap2">Everyone else's emissions linked to our products: suppliers' materials (Cat 1), trucks (Cat 4), fuel upstream (Cat 3), customers' processing (Cat 10), disposal (Cat 12).</text>
+    <text x="50" y="568" class="cap2">Lever: supplier PCFs and engagement, low-carbon materials, rail freight, lightweighting.</text></g>
+</svg>
